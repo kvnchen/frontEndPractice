@@ -39,6 +39,33 @@ button.active {
   color: blue;
 }
 
+div.container {
+  width: 500px;
+  height: 10px;
+  background-color: lightgray;
+  margin-bottom: 10px;
+}
+
+div.progress {
+  width: 0px;
+  height: 10px;
+  background-color: green;
+
+  animation-duration: 2s;
+  animation-name: progress;
+  animation-fill-mode: forwards;
+}
+
+@keyframes progress {
+  from {
+    width: 0px;
+  }
+
+  to {
+    width: 500px;
+  }
+}
+
 .accordion-icon {
   border: solid currentcolor;
   border-width: 0 2px 2px 0;

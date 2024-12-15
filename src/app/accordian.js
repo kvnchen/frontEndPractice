@@ -20,9 +20,11 @@ export function Accordian() {
               className={isCollapsed ? 'accordion-icon' : 'accordion-icon rotated'}></span>
           </button>
         </div>
-        <p hidden={isCollapsed}>
-          {body}
-        </p>
+        {!isCollapsed && (
+          <p>
+            {body}
+          </p>
+        )}
       </article>
     )
   }
