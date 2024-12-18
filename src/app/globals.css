@@ -39,7 +39,7 @@ button.active {
   color: blue;
 }
 
-div.container {
+div.progressContainer {
   width: 500px;
   height: 10px;
   background-color: lightgray;

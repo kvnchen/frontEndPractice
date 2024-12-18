@@ -6,7 +6,7 @@ export function Progress() {
 
   function Instance() {
     return (
-      <div className='container'>
+      <div className='progressContainer'>
         <div className='progress'></div>
       </div>
     );
