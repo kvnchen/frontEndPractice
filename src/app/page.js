@@ -4,8 +4,9 @@ import { Tabs } from './tabs.js';
 import { Accordian } from './accordian';
 import { Progress } from './progress.js';
 import { PagedTable } from './pagination.js';
+import { Dice } from './dice.js';
 
-// this fucking react project is 350 MB... gonna reuse it for react practice
+// this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
   // return <MortgageCalculator />
@@ -13,5 +14,6 @@ export default function Home() {
   // return <Tabs />
   // return <Accordian />
   // return <Progress />
-  return <PagedTable />
+  // return <PagedTable />
+  return <Dice />
 }
