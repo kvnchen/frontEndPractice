@@ -119,3 +119,11 @@ div.progress {
   height: 10px;
   border-radius: 50%;
 }
+
+.directory-title {
+  font-weight: bold;
+}
+
+.directory-offset {
+  margin-left: 10px;
+}

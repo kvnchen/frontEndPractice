@@ -5,6 +5,7 @@ import { Accordian } from './accordian';
 import { Progress } from './progress.js';
 import { PagedTable } from './pagination.js';
 import { Dice } from './dice.js';
+import { FileExplorer } from './fileExplorer.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
@@ -15,5 +16,6 @@ export default function Home() {
   // return <Accordian />
   // return <Progress />
   // return <PagedTable />
-  return <Dice />
+  // return <Dice />
+  return <FileExplorer />
 }
