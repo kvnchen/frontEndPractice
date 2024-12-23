@@ -6,6 +6,7 @@ import { Progress } from './progress.js';
 import { PagedTable } from './pagination.js';
 import { Dice } from './dice.js';
 import { FileExplorer } from './fileExplorer.js';
+import { LikeButton } from './likeButton.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
@@ -17,5 +18,6 @@ export default function Home() {
   // return <Progress />
   // return <PagedTable />
   // return <Dice />
-  return <FileExplorer />
+  // return <FileExplorer />
+  return <LikeButton />
 }

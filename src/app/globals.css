@@ -127,3 +127,22 @@ div.progress {
 .directory-offset {
   margin-left: 10px;
 }
+
+.like-button {
+  border-radius: 25%;
+  background-color: white;
+  box-shadow: none;
+}
+
+.like-button:hover {
+  color: #f00;
+  border-color: #f00;
+}
+
+.like-button.liked {
+  background-color: #f00;
+  border-color: #f00;
+  color: white;
+  box-shadow: none;
+}
+
