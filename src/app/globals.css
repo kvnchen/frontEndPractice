@@ -146,3 +146,21 @@ div.progress {
   box-shadow: none;
 }
 
+body.dim {
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal {
+  position: absolute;
+  top: calc(50% - 107px);
+  left: calc(50% - 250px);
+  text-align: center;
+  width: 500px;
+  z-index: 1;
+  background-color: white;
+  padding: 20px;
+}
+
+.modal > p {
+  text-align: left;
+}
