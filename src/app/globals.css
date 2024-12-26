@@ -164,3 +164,27 @@ body.dim {
 .modal > p {
   text-align: left;
 }
+
+.star-rating > span {
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+}
+
+.star-rating > span > svg {
+  pointer-events: none;
+}
+
+.star-rating > span > svg > path {
+  pointer-events: none;
+}
+
+.star-rating > span > .star-icon {
+  --icon-size: 32px;
+  height: var(--icon-size);
+  width: var(--icon-size);
+}
+
+.star-rating > span > .star-icon-filled {
+  fill: yellow;
+}
