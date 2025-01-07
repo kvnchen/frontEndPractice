@@ -12,6 +12,7 @@ import { StarRating } from './starRating';
 import { ToDo } from './todo.js';
 import { Traffic } from './traffic.js';
 import { DigitalClock } from './digitalClock.js';
+import { TicTacToe } from './ticTacToe.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
@@ -29,5 +30,6 @@ export default function Home() {
   // return <StarRating total={5} filled={2} />
   // return <ToDo seed={['Walk the dog', 'Buy groceries']} />
   // return <Traffic red={4000} yellow={1000} green={2000} />
-  return <DigitalClock />
+  // return <DigitalClock />
+  return <TicTacToe />
 }

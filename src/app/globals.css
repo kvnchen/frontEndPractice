@@ -306,3 +306,58 @@ body.dim {
   border-right: 20px solid transparent;
   border-bottom: 15px solid white;
 }
+
+.ttt-board {
+  width: 300px;
+  height: 300px;
+}
+
+.ttt-board > div.row {
+  display: flex;
+  line-height: 100px;
+}
+
+.ttt-board > div.row > div.column {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  font-size: 50px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.ttt-board > div.row > div.column.r0-c0{
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.ttt-board > div.row > div.column.r0-c1{
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.ttt-board > div.row > div.column.r0-c2{
+  border-bottom: 1px solid black;
+}
+
+.ttt-board > div.row > div.column.r1-c0{
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.ttt-board > div.row > div.column.r1-c1{
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.ttt-board > div.row > div.column.r1-c2{
+  border-bottom: 1px solid black;
+}
+
+.ttt-board > div.row > div.column.r2-c0{
+  border-right: 1px solid black;
+}
+
+.ttt-board > div.row > div.column.r2-c1{
+  border-right: 1px solid black;
+}
