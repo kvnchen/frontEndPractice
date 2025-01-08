@@ -13,6 +13,7 @@ import { ToDo } from './todo.js';
 import { Traffic } from './traffic.js';
 import { DigitalClock } from './digitalClock.js';
 import { TicTacToe } from './ticTacToe.js';
+import { Carousel } from './carousel.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
@@ -31,5 +32,6 @@ export default function Home() {
   // return <ToDo seed={['Walk the dog', 'Buy groceries']} />
   // return <Traffic red={4000} yellow={1000} green={2000} />
   // return <DigitalClock />
-  return <TicTacToe />
+  // return <TicTacToe />
+  return <Carousel />
 }
