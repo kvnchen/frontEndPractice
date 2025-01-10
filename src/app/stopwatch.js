@@ -21,6 +21,7 @@ export function Stopwatch() {
   }, [running]);
 
   // trigger after runWatch() updates time
+  // I thought time might not need to use state, but it didn't work as just a variable...
   useEffect(() => {
     if (running) {
       formatTime();
