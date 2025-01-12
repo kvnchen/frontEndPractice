@@ -16,6 +16,7 @@ import { TicTacToe } from './ticTacToe.js';
 import { Carousel } from './carousel.js';
 import { Stopwatch } from './stopwatch.js';
 import { JobBoard } from './jobBoard.js';
+import { TransferList } from './transferList.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
@@ -37,5 +38,6 @@ export default function Home() {
   // return <TicTacToe />
   // return <Carousel />
   // return <Stopwatch />
-  return <JobBoard pageSize={6} />
+  // return <JobBoard pageSize={6} />
+  return <TransferList />
 }

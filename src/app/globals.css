@@ -417,3 +417,16 @@ article.carousel > div.button-row > button.nav {
 article.carousel > div.button-row > button.nav.active {
   background-color: white;
 }
+
+article.transfer-list {
+  display: flex;
+}
+
+article.transfer-list > ul.list {
+  display: inline-block;
+}
+
+article.transfer-list > div.button-row {
+  display: inline-block;
+}
+
