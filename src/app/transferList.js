@@ -15,9 +15,7 @@ export function TransferList() {
     'Svelte'
   ];
 
-  // cant think of a better solution. well i guess this needs to be in state too
-  // I shouldn't have to be doing this...
-  const [checkMap, setCheckMap] = useState({
+  const base = {
     'HTML': false,
     'JavaScript': false,
     'CSS': false,
@@ -27,7 +25,12 @@ export function TransferList() {
     'Angular': false,
     'Vue': false,
     'Svelte': false
-  });
+  };
+
+  // cant think of a better solution
+  // we should be able to control the input with this, but
+  // the updated state here isn't being reflected in the render of the checkbox
+  const [checkMap, setCheckMap] = useState(base);
 
   const [leftList, setLeftList] = useState([]);
   const [rightList, setRightList] = useState([]);
@@ -68,6 +71,7 @@ export function TransferList() {
       setRightList(rightList.concat(leftList));
       setLeftList([]);
     }
+    setCheckMap(base);
   }
 
   function transferSelected(left) {
@@ -105,6 +109,8 @@ export function TransferList() {
         setRightList(rightList.concat(toSend));
       }
     }
+    // workaround is to clear all checkboxes after every operation...
+    setCheckMap(base);
   }
 
   useEffect(() => {
