@@ -430,3 +430,6 @@ article.transfer-list > div.button-row {
   display: inline-block;
 }
 
+article.checkbox-test > div > label.bold {
+  font-weight: bold;
+}

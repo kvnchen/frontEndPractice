@@ -17,6 +17,8 @@ import { Carousel } from './carousel.js';
 import { Stopwatch } from './stopwatch.js';
 import { JobBoard } from './jobBoard.js';
 import { TransferList } from './transferList.js';
+import { NestedCheckbox } from './nestedCheckbox.js';
+import { CheckboxTest } from './checkboxTest.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
@@ -39,5 +41,8 @@ export default function Home() {
   // return <Carousel />
   // return <Stopwatch />
   // return <JobBoard pageSize={6} />
-  return <TransferList />
+  // return <TransferList />
+  // return <NestedCheckbox />
+  return <CheckboxTest />
+
 }
