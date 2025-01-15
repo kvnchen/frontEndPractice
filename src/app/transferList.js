@@ -27,41 +27,48 @@ export function TransferList() {
     'Svelte': false
   };
 
-  // cant think of a better solution
-  // we should be able to control the input with this, but
-  // the updated state here isn't being reflected in the render of the checkbox
-  const [checkMap, setCheckMap] = useState(base);
+  // what if we just move around the data, not the checkboxes. rerender checkboxes when the underlying data changes
+  // oh... that worked perfectly.
+  // every time the state changes, it will rerender the component, calling our function that creates the checkboxes with the correct bindings
+  // there's a separation of data from rendered UI that's very clean here. Renderer should be pure
+  const [leftList, setLeftList] = useState(list1);
+  const [rightList, setRightList] = useState(list2);
 
-  const [leftList, setLeftList] = useState([]);
-  const [rightList, setRightList] = useState([]);
+  // this works fine when the checkboxes are stored in a normal array
+  const [checkMap, setCheckMap] = useState(base);
 
   // toggles disabled of < and > buttons
   function toggleButtons(e) {
-    // checkMap[e.target.id] = !checkMap[e.target.id];
-    // console.log(checkMap[e.target.id]);
-    // console.log(e.target.checked);
     setCheckMap({
       ...checkMap,
       [e.target.id]: e.target.checked
     });
   }
 
-  function initializeLists(arr, set) {
+  function initializeLists(arr) {
     const output = [];
-    // const tempCheck = {};
     for (let i = 0; i < arr.length; i++) {
       const item = arr[i];
-      // tempCheck[item] = false;
       output.push(
         <li key={item}>
-          <label htmlFor={`checkbox-${item}`}>{item}</label>
-          <input id={item} type='checkbox' name={`checkbox-${item}`} defaultChecked={false} onChange={toggleButtons}></input>
+          <label>
+            {item}
+            <input 
+              id={item} 
+              type='checkbox' 
+              checked={checkMap[item]} 
+              onChange={toggleButtons}
+            />
+          </label>
         </li>
       );
     }
-    set(output);
-    // setCheckMap(tempCheck);
+    return output;
   }
+
+  // but the checkbox's visible checked state doesn't work when the array is part of state??
+  // const [leftList, setLeftList] = useState(initializeLists(list1));
+  // const [rightList, setRightList] = useState(initializeLists(list2));
 
   function transferAll(left) {
     if (left) {
@@ -71,7 +78,6 @@ export function TransferList() {
       setRightList(rightList.concat(leftList));
       setLeftList([]);
     }
-    setCheckMap(base);
   }
 
   function transferSelected(left) {
@@ -79,26 +85,19 @@ export function TransferList() {
     const toKeep = [];
     if (left) {
       for (const item of rightList) {
-        // not sure how to get checked state from the collection...
-        // this is awful
-        if (checkMap[item.props.children[1].props.id]) {
+        if (checkMap[item]) {
           toSend.push(item);
         } else {
           toKeep.push(item);
         }
       }
-      // console.log('tokeep', toKeep);
-      // console.log('tosend', toSend);
       if (toSend.length > 0) {
-        // bugged to reset visual checked state
         setRightList(toKeep);
         setLeftList(leftList.concat(toSend));
       }
     } else {
       for (const item of leftList) {
-        // not sure how to get checked state from the collection...
-        // this is awful
-        if (checkMap[item.props.children[1].props.id]) {
+        if (checkMap[item]) {
           toSend.push(item);
         } else {
           toKeep.push(item);
@@ -109,25 +108,22 @@ export function TransferList() {
         setRightList(rightList.concat(toSend));
       }
     }
-    // workaround is to clear all checkboxes after every operation...
-    setCheckMap(base);
   }
 
-  useEffect(() => {
-    initializeLists(list1, setLeftList);
-    initializeLists(list2, setRightList);
-  }, [])
-  
   return (
     <article className='transfer-list'>
-      <ul className='list'>{...leftList}</ul>
+      <ul className='list'>
+        {initializeLists(leftList)}
+      </ul>
       <div className='button-column'>
         <div><button type="button" onClick={() => { transferAll(true) }}>&lt;&lt;</button></div>
         <div><button type="button" onClick={() => { transferSelected(true) }}>&lt;</button></div>
         <div><button type="button" onClick={() => { transferSelected(false) }}>&gt;</button></div>
         <div><button type="button" onClick={() => { transferAll(false) }}>&gt;&gt;</button></div>
       </div>
-      <ul className='list'>{...rightList}</ul>
+      <ul className='list'>
+        {initializeLists(rightList)}
+      </ul>
     </article>
   )
 }
