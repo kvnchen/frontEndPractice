@@ -1,6 +1,14 @@
 'use client';
 import { useState, useEffect } from 'react';
 
+/**
+ * Lesson about state in react:
+ * 
+ * State should just be data, don't put rendered components in state.
+ * Renderers should be pure functions that take state data and create visual output.
+ * Maintaining this clear separation will make life much easier and less buggy.
+ * Functions that modify state then only need to modify state, they don't need to affect UI.
+ */
 export function TransferList() {
   const list1 = [
     'HTML',

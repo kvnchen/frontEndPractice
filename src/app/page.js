@@ -41,8 +41,8 @@ export default function Home() {
   // return <Carousel />
   // return <Stopwatch />
   // return <JobBoard pageSize={6} />
-  return <TransferList />
-  // return <NestedCheckbox />
+  // return <TransferList />
+  return <NestedCheckbox />
   // return <CheckboxTest />
 
 }

@@ -433,3 +433,7 @@ article.transfer-list > div.button-row {
 article.checkbox-test > div > label.bold {
   font-weight: bold;
 }
+
+div.nested-checkbox-row {
+  margin-left: 10px;
+}

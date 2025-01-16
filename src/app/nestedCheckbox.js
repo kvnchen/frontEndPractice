@@ -68,53 +68,84 @@ const rawData = [
 ];
 
 export function NestedCheckbox() {
-  const [map, setMap] = useState({});
-  const [boxes, setBoxes] = useState([]);
-
-  const tempMap = {}; // might lose all our bindings on setState...
-
-  // return an array of react subcomponents. map can be edited as we go?
-  function NestedBox(data, map, parentId) {
-    const rows = [];
-
-    function makeRow({ id, name, children }) {
-      map[id] = {
+  function initialize(data, map, parentId) {
+    for (const item of data) {
+      map[item.id] = {
         checked: false,
+        name: item.name
       };
 
-      if (parentId)
-        map[id].parentId = parentId;
+      if (parentId) {
+        map[item.id].parentId = parentId;
+        map[parentId].children.push(item.id);
+      }
 
-      const cData = [];
+      if (Array.isArray(item.children) && item.children.length > 0) {
+        map[item.id].children = [];
+        initialize(item.children, map, item.id);
+      }
+    }
+  }
+  const temp = {};
+  initialize(rawData, temp);
 
-      if (Array.isArray(children)) {
-        map[id].children = [];
+  const [map, setMap] = useState(temp);
 
-        for (const child of children) {
-          map[id].children.push(child.id);
-          cData.push(NestedBox(child));
+  function NestedBox(data) {
+    const rows = [];
+
+    // can we just change properties of map then call setMap on map?
+    // sorta? we can change map, then setMap to a new object that's a clone of map
+    function toggle(e) {
+      const id = e.target.id;
+      
+      function toggleDescendants(id) {
+        map[id].checked = e.target.checked;
+
+        if (Array.isArray(map[id].children)) {
+          for (const childId of map[id].children) {
+            toggleDescendants(childId);
+          }
         }
+      }
+      toggleDescendants(id);
+
+      
+      setMap({...map});
+    }
+
+    function makeRow({ id, name, children }) {
+      let cData;
+
+      if (Array.isArray(children) && children.length > 0) {
+        cData = NestedBox(children);
       }
 
       return (
-        <div>
+        <div className='nested-checkbox-row' key={id}>
           <label>
             {name}
-            <input type='checkbox' defaultChecked={false}  />
+            <input id={id} type='checkbox' checked={map[id].checked} onChange={toggle} />
           </label>
-          {...cData}
+          {cData}
         </div>
       )
     }
 
     for (const item of data) {
-
+      rows.push(makeRow(item));
     }
+
+    return (
+      <>
+        {...rows}
+      </>
+    )
   }
 
   return (
-    <div>
-      {...boxes}
-    </div>
+    <article className='nested-checkbox'>
+      {NestedBox(rawData)}
+    </article>
   )
 }
