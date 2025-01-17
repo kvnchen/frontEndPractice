@@ -90,6 +90,7 @@ export function NestedCheckbox() {
   initialize(rawData, temp);
 
   const [map, setMap] = useState(temp);
+  const [indeterminate, setIndeterminate] = useState({});
 
   function NestedBox(data) {
     const rows = [];
@@ -110,8 +111,47 @@ export function NestedCheckbox() {
       }
       toggleDescendants(id);
 
+      function toggleAncestors(id) {
+        let hasChecked = false;
+        let hasUnchecked = false;
+
+        function checkDescendants(cid) {
+          for (const childId of map[cid].children) {
+            if (map[childId].checked) {
+              hasChecked = true;
+            } else 
+              hasUnchecked = true;
+            
+            if (map[childId].children) {
+              checkDescendants(childId);
+            }
+          }
+        }
+
+        checkDescendants(id);
+
+        if (hasChecked && hasUnchecked) {
+          indeterminate[id] = true;
+          map[id].checked = false;
+        } else if (hasChecked) {
+          map[id].checked = true;
+          delete indeterminate[id];
+        } else if (hasUnchecked) {
+          map[id].checked = false;
+          delete indeterminate[id];
+        }
+
+        if (map[id].parentId) {
+          toggleAncestors(map[id].parentId);
+        }
+      }
+
+      if (map[id].parentId) {
+        toggleAncestors(map[id].parentId);
+      }
       
       setMap({...map});
+      setIndeterminate({...indeterminate});
     }
 
     function makeRow({ id, name, children }) {
@@ -123,9 +163,14 @@ export function NestedCheckbox() {
 
       return (
         <div className='nested-checkbox-row' key={id}>
-          <label>
+          <label className={indeterminate[id] ? 'nested-checkbox-indeterminate' : ''} >
             {name}
-            <input id={id} type='checkbox' checked={map[id].checked} onChange={toggle} />
+            <input 
+              id={id} 
+              type='checkbox' 
+              checked={map[id].checked} 
+              onChange={toggle} 
+            />
           </label>
           {cData}
         </div>

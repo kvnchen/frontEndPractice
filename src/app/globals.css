@@ -437,3 +437,7 @@ article.checkbox-test > div > label.bold {
 div.nested-checkbox-row {
   margin-left: 10px;
 }
+
+label.nested-checkbox-indeterminate {
+  font-weight: bold;
+}
