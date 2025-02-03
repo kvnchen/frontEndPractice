@@ -441,3 +441,27 @@ div.nested-checkbox-row {
 label.nested-checkbox-indeterminate {
   font-weight: bold;
 }
+
+article.grid-lights {
+  width: 320px;
+  height: 320px;
+}
+
+div.grid-row {
+  display: flex;
+  width: 320px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+div.grid-light {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  border: 1px solid black;
+}
+
+div.grid-light.active {
+  background-color: green;
+}
