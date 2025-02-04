@@ -20,6 +20,7 @@ import { TransferList } from './transferList.js';
 import { NestedCheckbox } from './nestedCheckbox.js';
 import { CheckboxTest } from './checkboxTest.js';
 import { GridLights } from './gridLights.js';
+import { Histogram } from './histogram.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
@@ -45,5 +46,6 @@ export default function Home() {
   // return <TransferList />
   // return <NestedCheckbox />
   // return <CheckboxTest />
-  return <GridLights />
+  // return <GridLights />
+  return <Histogram />
 }

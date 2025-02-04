@@ -465,3 +465,45 @@ div.grid-light {
 div.grid-light.active {
   background-color: green;
 }
+
+article.histogram {
+  display: flex;
+}
+
+article.histogram > div.y-axis {
+  display: inline-block;
+  width: 50px;
+}
+
+article.histogram > div.y-axis > div.y-step {
+  height: 50px;
+  border-right: 1px solid black;
+}
+
+article.histogram > div.y-axis > div.y-step-0 {
+  height: 10px;
+}
+
+article.histogram > div.graph {
+  display: flex;
+  height: 210px;
+}
+
+article.histogram > div.graph > div.x-column {
+  display: inline-block;
+  width: 50px;
+  height: 100%;
+  text-align: center;
+}
+
+article.histogram > div.graph > div.x-column > div.x-bar {
+  background-color: purple;
+  position: relative;
+  width: 30px;
+  left: 10px;
+}
+
+article.histogram > div.graph > div.x-column > div.x-footer {
+  position: relative;
+  border-top: 1px solid black;
+}
