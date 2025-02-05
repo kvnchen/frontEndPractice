@@ -21,6 +21,7 @@ import { NestedCheckbox } from './nestedCheckbox.js';
 import { CheckboxTest } from './checkboxTest.js';
 import { GridLights } from './gridLights.js';
 import { Histogram } from './histogram.js';
+import { UndoableCounter } from './undoableCounter/undoableCounter.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
@@ -47,5 +48,6 @@ export default function Home() {
   // return <NestedCheckbox />
   // return <CheckboxTest />
   // return <GridLights />
-  return <Histogram />
+  // return <Histogram />
+  return <UndoableCounter />
 }

@@ -1,0 +1,21 @@
+.undoableCounter {
+  width: 500px;
+}
+
+.topRow {
+  text-align: center;
+}
+
+.midRow {
+  text-align: center;
+}
+
+.counter {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.table {
+  width: 500px;
+  text-align: center;
+}
