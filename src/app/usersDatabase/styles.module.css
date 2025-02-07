@@ -1,0 +1,44 @@
+.userDB {
+  width: 400px;
+  height: 200px;
+}
+
+.searchRow {
+  margin-bottom: 10px;
+}
+
+.content {
+  display: flex;
+  width: 400px;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.list {
+  display: inline-block;
+  border: 1px solid black;
+  overflow-y: auto;
+  width: 200px;
+  height: 150px;
+  margin-right: 10px;
+}
+
+.selected {
+  background-color: blue;
+  color: white;
+}
+
+.fields {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+}
+
+.input {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.button {
+  margin-right: 2px;
+}

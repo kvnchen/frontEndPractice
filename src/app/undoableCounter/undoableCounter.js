@@ -13,6 +13,9 @@ import { useState } from 'react';
  *  stores undone actions
  *  cleared when new action is taken
  * 
+ * kinda forgot table syntax, minor css mistakes, otherwise got logic down on "first" try
+ * remember to add key
+ * in 30 min time limit
  */
 
 export function UndoableCounter() {

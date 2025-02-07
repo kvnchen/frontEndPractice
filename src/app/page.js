@@ -22,6 +22,7 @@ import { CheckboxTest } from './checkboxTest.js';
 import { GridLights } from './gridLights.js';
 import { Histogram } from './histogram.js';
 import { UndoableCounter } from './undoableCounter/undoableCounter.js';
+import { UsersDatabase } from './UsersDatabase/UsersDatabase.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
@@ -49,5 +50,6 @@ export default function Home() {
   // return <CheckboxTest />
   // return <GridLights />
   // return <Histogram />
-  return <UndoableCounter />
+  // return <UndoableCounter />
+  return <UsersDatabase />
 }
