@@ -22,7 +22,8 @@ import { CheckboxTest } from './checkboxTest.js';
 import { GridLights } from './gridLights.js';
 import { Histogram } from './histogram.js';
 import { UndoableCounter } from './undoableCounter/undoableCounter.js';
-import { UsersDatabase } from './UsersDatabase/UsersDatabase.js';
+import { UsersDatabase } from './usersDatabase/usersDatabase.js';
+import { TimeAgo } from './timeAgo/timeAgo.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
@@ -51,5 +52,7 @@ export default function Home() {
   // return <GridLights />
   // return <Histogram />
   // return <UndoableCounter />
-  return <UsersDatabase />
+  // return <UsersDatabase />
+
+  return <TimeAgo time={Date.now() - 55000} />
 }
