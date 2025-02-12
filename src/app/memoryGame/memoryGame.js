@@ -44,11 +44,27 @@ const emojis = [
  * time up, not even done with init
  * 
  * how do you do a flip animation?
- * 
- * 
+ *
  * 
  * selected: array of up to 2 cards? indexes?
  * 
+ * well, that went swimmingly.
+ * did look at output though, just to test if modifying a card would trigger a rerender, which it didnt
+ * 
+ * took another ~30 min at a leisurely pace
+ * 
+ * 
+ * summary:
+ * 
+ * board is an nxn grid of card objects.
+ * entire board has to be redefined on every card flip
+ * 
+ * selected can just be null or a single card, as it can be reset every time a pair is selected
+ * when two cards are selected, check if they match to decrement remainingPars
+ * 
+ * when remainingPairs is 0, reveal the reset button, which just calls init again
+ * 
+ * all the above actions just modifies state, and renderer just renders the board
  */
 export function MemoryGame() {
   const [board, setBoard] = useState([]);
