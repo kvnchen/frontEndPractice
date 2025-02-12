@@ -24,6 +24,7 @@ import { Histogram } from './histogram.js';
 import { UndoableCounter } from './undoableCounter/undoableCounter.js';
 import { UsersDatabase } from './usersDatabase/usersDatabase.js';
 import { TimeAgo } from './timeAgo/timeAgo.js';
+import { MemoryGame } from './memoryGame/memoryGame.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
@@ -53,6 +54,7 @@ export default function Home() {
   // return <Histogram />
   // return <UndoableCounter />
   // return <UsersDatabase />
+  // return <TimeAgo time={Date.now() - 55000} />
+  return <MemoryGame />
 
-  return <TimeAgo time={Date.now() - 55000} />
 }
