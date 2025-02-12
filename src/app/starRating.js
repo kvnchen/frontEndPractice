@@ -10,7 +10,7 @@ import { useState } from 'react';
  * 
  * then tie mouseover events and click event to these setState functions
  */
-export function StarRating({ total, filled }) {
+export function StarRating({ total = 5, filled = 0 }) {
   const stars = [];
 
   function createStar(key) {
