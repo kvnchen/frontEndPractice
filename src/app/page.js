@@ -6,34 +6,41 @@ import { MortgageCalculator } from './mortgage.js';
 import { Hypergeo } from './karsten.js';
 import { Tabs } from './tabs.js';
 import { Accordian } from './accordian';
+
 import { Progress } from './progress.js';
 import { PagedTable } from './pagination.js';
 import { Dice } from './dice.js';
 import { FileExplorer } from './fileExplorer.js';
+
 import { LikeButton } from './likeButton.js';
 import { Modal } from './modal.js';
 import { StarRating } from './starRating';
 import { ToDo } from './todo.js';
+
 import { Traffic } from './traffic.js';
 import { DigitalClock } from './digitalClock.js';
 import { TicTacToe } from './ticTacToe.js';
 import { Carousel } from './carousel.js';
+
 import { Stopwatch } from './stopwatch.js';
 import { JobBoard } from './jobBoard.js';
 import { TransferList } from './transferList.js';
 import { NestedCheckbox } from './nestedCheckbox.js';
+
 import { CheckboxTest } from './checkboxTest.js';
 import { GridLights } from './gridLights.js';
 import { Histogram } from './histogram.js';
 import { UndoableCounter } from './undoableCounter/undoableCounter.js';
+
 import { UsersDatabase } from './usersDatabase/usersDatabase.js';
 import { TimeAgo } from './timeAgo/timeAgo.js';
 import { MemoryGame } from './memoryGame/memoryGame.js';
+import { WhackAMole } from './whackAMole/whackAMole.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('MemoryGame');
+  const [selection, setSelection] = useState('WhackAMole');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -69,6 +76,7 @@ export default function Home() {
     UsersDatabase: <UsersDatabase />,
     TimeAgo: <TimeAgo time={Date.now() - 55000} />,
     MemoryGame: <MemoryGame />,
+    WhackAMole: <WhackAMole />,
   };
 
   function select() {
