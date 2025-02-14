@@ -35,6 +35,9 @@ import styles from './styles.module.css';
     ok, that worked... jesus
 
   that was kinda rough. would not have realized checking time in setTimeout callbacks was fucked
+
+  didn't know how to overlay images. had to set hill as background image to a div, but still not quite right
+  
 */
 
 export function WhackAMole() {
@@ -115,9 +118,10 @@ export function WhackAMole() {
 
       for (let column = 0; column < 3; column++) {
         columns.push(
-          // prob have to position and zindex images
           <div className={styles.column} key={column} onClick={() => despawn(row, column, true)}>
+            <div className={styles.mole} hidden={board[row][column]}></div>
             <img className={styles.mole} hidden={!board[row][column]} src="https://www.greatfrontend.com/img/questions/whack-a-mole/mole-head.png" />
+            <img className={styles.hole} src="https://www.greatfrontend.com/img/questions/whack-a-mole/mole-hill.png" />
           </div>
         );
       }
