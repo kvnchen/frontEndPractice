@@ -33,11 +33,14 @@
   position: relative;
   top: 20px;
   left: 20px;
-  width: 66px;
-  height: 66px;
+  width: 66%;
+  height: 66%;
 }
 
 .hole {
+  position: relative;
+  /* top: 66px; */
   width: 100px;
-  height: 33px;
+  height: 33%;
+  z-index: 1;
 }

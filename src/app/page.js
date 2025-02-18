@@ -37,10 +37,12 @@ import { TimeAgo } from './timeAgo/timeAgo.js';
 import { MemoryGame } from './memoryGame/memoryGame.js';
 import { WhackAMole } from './whackAMole/whackAMole.js';
 
+import { Tweet } from './tweet/tweet.js';
+
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('WhackAMole');
+  const [selection, setSelection] = useState('Tweet');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -77,6 +79,8 @@ export default function Home() {
     TimeAgo: <TimeAgo time={Date.now() - 55000} />,
     MemoryGame: <MemoryGame />,
     WhackAMole: <WhackAMole />,
+
+    Tweet: <Tweet />
   };
 
   function select() {

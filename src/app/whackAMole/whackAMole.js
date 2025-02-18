@@ -38,6 +38,10 @@ import styles from './styles.module.css';
 
   didn't know how to overlay images. had to set hill as background image to a div, but still not quite right
   
+  how do we animate it popping up?
+
+  i guess the mole is absolutely positioned and animates moving upwards
+  that's what gfe does
 */
 
 export function WhackAMole() {
