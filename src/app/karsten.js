@@ -1,7 +1,7 @@
 'use client'; // tells next.js these are client components https://stackoverflow.com/questions/74471642/nextjs-13-button-onclick-event-handlers-cannot-be-passed-to-client-componen
 import { useState } from 'react';
 
-export function Hypergeo() {
+export function Karsten() {
   const [hideInputs, setHideInputs] = useState(true);
   const [hideCommander, setHideCommander] = useState(true);
   const [hideCompanion, setHideCompanion] = useState(true);
@@ -62,7 +62,7 @@ export function Hypergeo() {
 
   return (
     <article>
-      <h1>Hypergeometric Calculator</h1>
+      <h1>Karsten Formula</h1>
       <form method="post" onSubmit={handleSubmit}>
         <p>
           <label>

@@ -1,0 +1,27 @@
+.hypergeo {
+  width: 33vw;
+}
+
+.hypergeo > div {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.hypergeo > div > span {
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.row label {
+  display: inline-block;
+  width: 45%;
+}
+
+.row input {
+  display: inline-block;
+}

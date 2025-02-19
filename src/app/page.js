@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 import { MortgageCalculator } from './mortgage.js';
-import { Hypergeo } from './karsten.js';
+import { Karsten } from './karsten.js';
 import { Tabs } from './tabs.js';
 import { Accordian } from './accordian';
 
@@ -38,15 +38,16 @@ import { MemoryGame } from './memoryGame/memoryGame.js';
 import { WhackAMole } from './whackAMole/whackAMole.js';
 
 import { Tweet } from './tweet/tweet.js';
+import { Hypergeo } from './hypergeo/hypergeo.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('Tweet');
+  const [selection, setSelection] = useState('Hypergeo');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
-    Hypergeo: <Hypergeo />,
+    Karsten: <Karsten />,
     Tabs: <Tabs />,
     Accordian: <Accordian />,
 
@@ -80,7 +81,8 @@ export default function Home() {
     MemoryGame: <MemoryGame />,
     WhackAMole: <WhackAMole />,
 
-    Tweet: <Tweet />
+    Tweet: <Tweet />,
+    Hypergeo: <Hypergeo />,
   };
 
   function select() {
