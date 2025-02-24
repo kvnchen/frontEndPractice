@@ -1,0 +1,59 @@
+
+.clock {
+  width: 500px;
+  height: 500px;
+  border: 2px solid gray;
+  border-radius: 50%;
+}
+
+/* length 230px */
+.seconds {
+  position: relative;
+  left: 50%;
+  top: 20px;
+  width: 2px;
+  height: 230px;
+  background-color: gray;
+
+  transform-origin: 1px 230px;
+  /* animation: 60s linear infinite normal rotate; */
+}
+
+/* length 200px
+   so offset by this length reduced by 20px seconds hand offset
+   -200px + 20px = -180px
+*/
+.minutes {
+  position: relative;
+  left: 50%;
+  top: -180px;
+  width: 2px;
+  height: 200px;
+  background-color: gray;
+
+  transform-origin: 1px 200px;
+}
+
+/* length: 170px
+   -170 + -200 + 20 = -350
+*/
+.hours {
+  position: relative;
+  left: 50%;
+  top: -350px;
+  width: 2px;
+  height: 170px;
+  background-color: gray;
+  transform-origin: 1px 170px;
+}
+
+/* don't know how to pass starting value from js */
+/* @keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+} */

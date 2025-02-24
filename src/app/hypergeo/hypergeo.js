@@ -9,6 +9,9 @@ export function Hypergeo() {
   const [noHits, setNoHits] = useState(null);
   const [targetHits, setTarget] = useState(null);
 
+  // the react form api is slightly different
+  // the action prop automatically extracts a FormData object
+  // sucessfully resolving the callback clears the form fields
   function calculate(formData) {
     let { population, sample, hits, target } = Object.fromEntries(formData.entries());
     population = Number(population);
@@ -50,6 +53,7 @@ export function Hypergeo() {
           </label>
           <input id='target' name='target' type='number' min='0' max='1000' step='1' required />
         </div>
+        {/* remember that the submit button needs to be inside the form */}
         <div>
           <button type='submit'>Calculate</button>
         </div>
