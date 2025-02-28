@@ -40,11 +40,12 @@ import { WhackAMole } from './whackAMole/whackAMole.js';
 import { Tweet } from './tweet/tweet.js';
 import { Hypergeo } from './hypergeo/hypergeo.js';
 import { AnalogClock } from './analogClock/analogClock.js';
+import { TemperatureConverter } from './temperature/temperature.js'
 
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('AnalogClock');
+  const [selection, setSelection] = useState('TemperatureConverter');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -84,7 +85,8 @@ export default function Home() {
 
     Tweet: <Tweet />,
     Hypergeo: <Hypergeo />,
-    AnalogClock: <AnalogClock />
+    AnalogClock: <AnalogClock />,
+    TemperatureConverter: <TemperatureConverter />
   };
 
   function select() {

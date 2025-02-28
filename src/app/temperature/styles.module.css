@@ -1,0 +1,36 @@
+.converter {
+  display: flex;
+}
+
+.section {
+  display: inline-block;
+  width: 100px;
+  height: 60px;
+}
+
+.p {
+  display: inline-block;
+  text-align: center;
+  width: 20px;
+}
+
+.section > input {
+  display: block;
+  width: 100px;
+  height: 40px;
+  padding: 0px;
+  padding-block: 0px;
+  padding-inline: 0px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.section > label {
+  display: block;
+  width: 100px;
+  height: 20px;
+  font-size: 14px;
+  text-align: center;
+  background-color: lightgray;
+}
