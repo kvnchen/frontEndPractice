@@ -4,10 +4,6 @@ a {
   text-decoration: none;
 }
 
-button.active {
-  color: blue;
-}
-
 div.progressContainer {
   width: 500px;
   height: 10px;

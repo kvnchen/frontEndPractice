@@ -1,0 +1,26 @@
+
+.container {
+  width: 390px;
+}
+
+.active {
+  width: 130px;
+  background-color: white;
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-bottom: none;
+}
+
+.inactive {
+  width: 130px;
+  background-color: white;
+  border: 1px solid gray;
+}
+
+.content {
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+  margin: 0;
+}

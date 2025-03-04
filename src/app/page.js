@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { MortgageCalculator } from './mortgage.js';
 import { Karsten } from './karsten.js';
-import { Tabs } from './tabs.js';
+import { Tabs } from './tabs/tabs.js';
 import { Accordian } from './accordian';
 
 import { Progress } from './progress.js';
@@ -45,7 +45,7 @@ import { TemperatureConverter } from './temperature/temperature.js'
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('TemperatureConverter');
+  const [selection, setSelection] = useState('Tabs');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
