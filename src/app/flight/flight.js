@@ -19,11 +19,11 @@ export function FlightBooker() {
 
     if (selection === 'oneWay') {
       if (compDeparture < timeNow) {
-        setFormError('Selected dates are in the past');
+        setFormError('Selected date is in the past');
       } else {
         setFormError(null);
         msg = `You have booked a one-way flight on ${departure}`;
-        window.alert(msg);
+        window.alert(msg); // this happens before the error is cleared
       }
     } else {
       const compReturn = new Date(returnDate);
@@ -43,30 +43,27 @@ export function FlightBooker() {
   return (
     // forgot action prop
     <article>
-      <div>
+      <div className={styles.inputrow}>
         <select value={selection} onChange={e => setSelection(e.target.value)}>
           <option value="oneWay">One-way flight</option>
           <option value="return">Return flight</option>
         </select>
       </div>
       <form action={validate}>
-        <div>
-          
-        </div>
-        <div>
+        <div className={styles.inputrow}>
           {/* needs id to be captured as formData */}
           <input id="departure" name="departure" type="date" required />
         </div>
         { selection === 'return' && (
-          <div>
+          <div className={styles.inputrow}>
             <input id="returnDate" name="returnDate" type="date" required />
           </div>
         )}
-        <div>
+        <div className={styles.inputrow}>
           <button type="submit">Submit</button>
         </div>
         {formError && (
-          <div>
+          <div className={styles.error}>
             {formError}
           </div>
         )}

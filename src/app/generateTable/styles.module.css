@@ -1,0 +1,18 @@
+.inputRow {
+  margin-bottom: 10px;
+}
+
+.input {
+  margin-left: 5px;
+}
+
+.table {
+  border-collapse: collapse;
+}
+
+.column {
+  border: 1px solid black;
+  text-align: center;
+  padding: 8px;
+}
+

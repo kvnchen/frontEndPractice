@@ -43,11 +43,12 @@ import { AnalogClock } from './analogClock/analogClock.js';
 import { TemperatureConverter } from './temperature/temperature.js'
 
 import { FlightBooker } from './flight/flight.js'
+import { GenTable } from './generateTable/genTable.js'
 
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('FlightBooker');
+  const [selection, setSelection] = useState('GenTable');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -90,7 +91,8 @@ export default function Home() {
     AnalogClock: <AnalogClock />,
     TemperatureConverter: <TemperatureConverter />,
 
-    FlightBooker: <FlightBooker />
+    FlightBooker: <FlightBooker />,
+    GenTable: <GenTable />
   };
 
   function select() {
