@@ -26,7 +26,7 @@ export function GenTable() {
 
       for (let j = 0; j < columns; j++) {
         rowColumns.push(
-          <td key={`column-${j}`} className={styles.column}>{monotonic}</td> // ordering intentionally wrong
+          <td key={`column-${j}`} className={styles.column}>{monotonic}</td>
         );
         monotonic++;
       }

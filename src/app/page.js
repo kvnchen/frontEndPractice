@@ -40,15 +40,17 @@ import { WhackAMole } from './whackAMole/whackAMole.js';
 import { Tweet } from './tweet/tweet.js';
 import { Hypergeo } from './hypergeo/hypergeo.js';
 import { AnalogClock } from './analogClock/analogClock.js';
-import { TemperatureConverter } from './temperature/temperature.js'
+import { TemperatureConverter } from './temperature/temperature.js';
 
-import { FlightBooker } from './flight/flight.js'
-import { GenTable } from './generateTable/genTable.js'
+import { FlightBooker } from './flight/flight.js';
+import { GenTable } from './generateTable/genTable.js';
+import { ProgressBar } from './progressBar/progressBar.js';
+
 
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('GenTable');
+  const [selection, setSelection] = useState('ProgressBar');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -92,7 +94,8 @@ export default function Home() {
     TemperatureConverter: <TemperatureConverter />,
 
     FlightBooker: <FlightBooker />,
-    GenTable: <GenTable />
+    GenTable: <GenTable />,
+    ProgressBar: <ProgressBar filled={45} />
   };
 
   function select() {

@@ -1,0 +1,15 @@
+
+.container {
+  width: 500px;
+  height: 20px;
+  background-color: #c5c5c5;
+  border-radius: 5%;
+}
+
+.progress {
+  height: 20px;
+  background-color: #0d6efd;
+  border-radius: 5%;
+  color: white;
+  text-align: center;
+}
