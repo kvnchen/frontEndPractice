@@ -8,7 +8,7 @@ import { Tabs } from './tabs/tabs.js';
 import { Accordian } from './accordian';
 
 import { Progress } from './progress.js';
-import { PagedTable } from './pagination.js';
+import { PagedTable } from './dataTable/pagedTable.js';
 import { Dice } from './dice.js';
 import { FileExplorer } from './fileExplorer.js';
 
@@ -50,7 +50,7 @@ import { ProgressBar } from './progressBar/progressBar.js';
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('ProgressBar');
+  const [selection, setSelection] = useState('PagedTable');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
