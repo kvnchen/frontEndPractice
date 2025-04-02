@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { MortgageCalculator } from './mortgage.js';
 import { Karsten } from './karsten.js';
 import { Tabs } from './tabs/tabs.js';
-import { Accordian } from './accordian';
+import { Accordian } from './accordian/accordian.js';
 
 import { Progress } from './progress.js';
 import { PagedTable } from './dataTable/pagedTable.js';
@@ -45,12 +45,13 @@ import { TemperatureConverter } from './temperature/temperature.js';
 import { FlightBooker } from './flight/flight.js';
 import { GenTable } from './generateTable/genTable.js';
 import { ProgressBar } from './progressBar/progressBar.js';
+import { ConnectFour } from './connectFour/connectFour.js';
 
 
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('PagedTable');
+  const [selection, setSelection] = useState('ConnectFour');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -95,7 +96,8 @@ export default function Home() {
 
     FlightBooker: <FlightBooker />,
     GenTable: <GenTable />,
-    ProgressBar: <ProgressBar filled={45} />
+    ProgressBar: <ProgressBar filled={45} />,
+    ConnectFour: <ConnectFour />
   };
 
   function select() {

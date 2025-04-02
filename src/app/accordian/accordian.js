@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import styles from './styles.module.css';
 
 export function Accordian() {
 
@@ -11,13 +12,13 @@ export function Accordian() {
     }
 
     return (
-      <article>
+      <div className={styles.accordian}>
         <div>
-          {title}
-          <button onClick={handleClick}>
+          <button onClick={handleClick} className={styles.title}>
+            {title}
             <span
               aria-hidden="true"
-              className={isCollapsed ? 'accordion-icon' : 'accordion-icon rotated'}></span>
+              className={isCollapsed ? styles.accordianIcon : `${styles.accordianIcon} ${styles.rotated}`}></span>
           </button>
         </div>
         {!isCollapsed && (
@@ -25,7 +26,7 @@ export function Accordian() {
             {body}
           </p>
         )}
-      </article>
+      </div>
     )
   }
 
