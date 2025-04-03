@@ -47,11 +47,12 @@ import { GenTable } from './generateTable/genTable.js';
 import { ProgressBar } from './progressBar/progressBar.js';
 import { ConnectFour } from './connectFour/connectFour.js';
 
+import { Tasks } from './reducerContext/reducerContext.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('ConnectFour');
+  const [selection, setSelection] = useState('Tasks');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -97,7 +98,9 @@ export default function Home() {
     FlightBooker: <FlightBooker />,
     GenTable: <GenTable />,
     ProgressBar: <ProgressBar filled={45} />,
-    ConnectFour: <ConnectFour />
+    ConnectFour: <ConnectFour />,
+
+    Tasks: <Tasks />
   };
 
   function select() {

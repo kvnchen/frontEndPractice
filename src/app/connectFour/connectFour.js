@@ -9,7 +9,6 @@ import styles from './styles.module.css';
  * state:
  *   activePlayer: string, 'red' || 'yellow'
  *   board: array[], 'r' || 'y'
- *   isOver: bool
  *   winner: null || 'red || 'yellow'
  *   
  *   
@@ -18,6 +17,9 @@ import styles from './styles.module.css';
  *   align-items for cross-axis (vertical)
  * 
  * over time (30 min), going very slowly in the afternoon
+ * 
+ * victory checking function was kinda gross and time consuming
+ * but otherwise the question is fairly straightforward
  */
 export function ConnectFour() {
   const [activePlayer, setActivePlayer] = useState('red');
@@ -29,7 +31,6 @@ export function ConnectFour() {
     new Array(7),
     new Array(7),
   ]);
-  const [isOver, setOver] = useState(false);
   const [winner, setWinner] = useState(null);
   const [lastCell, setLastCell] = useState([null, null]);
 
@@ -43,8 +44,8 @@ export function ConnectFour() {
       new Array(7),
       new Array(7),
     ]);
-    setOver(false);
     setWinner(null);
+    setLastCell([null, null]);
   }
 
   // check 8 directions based on lastCell
@@ -131,25 +132,17 @@ export function ConnectFour() {
     }
 
     if (leftCount + rightCount >= 3)
-      endGame(color);
-
-    if (topLeftCount + botRightCount >= 3)
-      endGame(color);
-
-    if (botLeftCount + topRightCount >= 3)
-      endGame(color);
-
-    if (topCount + botCount >= 3)
-      endGame(color);
-  }
-
-  function endGame(winner) {
-    setWinner(winner);
-    setOver(true);
+      setWinner(color);
+    else if (topLeftCount + botRightCount >= 3)
+      setWinner(color);
+    else if (botLeftCount + topRightCount >= 3)
+      setWinner(color);
+    else if (topCount + botCount >= 3)
+      setWinner(color);
   }
 
   function addPiece(column) {
-    if (!isOver) {
+    if (winner === null) {
       const tempBoard = [
         [...board[0]],
         [...board[1]],
