@@ -31,12 +31,12 @@ export function Karsten() {
     return output;
   }
 
-  function handleSubmit(e) {
-    e.preventDefault(); // prevent browser from reloading the page
+  function handleSubmit(formData) {
+    // e.preventDefault(); // prevent browser from reloading the page
   
     // kind of cumbersome to extract form values
-    const form = e.target;
-    const formData = new FormData(form);
+    // const form = e.target;
+    // const formData = new FormData(form);
     const formJson = Object.fromEntries(formData.entries());
     console.log(formJson);
     setOutput(`Recommended lands: ${karsten(formJson)}`);
@@ -63,7 +63,7 @@ export function Karsten() {
   return (
     <article>
       <h1>Karsten Formula</h1>
-      <form method="post" onSubmit={handleSubmit}>
+      <form action={handleSubmit}>
         <p>
           <label>
             Format <select name="format" onChange={handleFormatChange}>

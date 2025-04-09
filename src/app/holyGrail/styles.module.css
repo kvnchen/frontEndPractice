@@ -1,0 +1,35 @@
+header.header {
+  height: 60px;
+  background-color: tomato;
+}
+
+div.columns {
+  display: flex;
+  height: calc(100vh - 160px);
+}
+
+nav.nav {
+  display: inline-block;
+  width: 100px;
+  background-color: coral;
+}
+
+main.main {
+  display: inline-block;
+  width: calc(100vw - 200px);
+  background-color: moccasin;
+}
+
+aside.aside {
+  display: inline-block;
+  width: 100px;
+  background-color: sandybrown;
+}
+
+footer.footer {
+  height: 100px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: slategray;
+}

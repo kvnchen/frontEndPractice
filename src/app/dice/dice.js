@@ -1,21 +1,22 @@
 'use client';
 import { useState } from 'react';
+import styles from './styles.module.css';
 
 export function Dice() {
   const [dice, setDice] = useState([]);
 
   function makePip() {
     return (
-      <div className="pip"></div>
+      <div className={styles.pip}></div>
     )
   }
 
   function createRow(key, left, center, right) {
     return (
-      <div key={key} className="die-row">
-        <div className="die-column">{left && makePip()}</div>
-        <div className="die-column">{center && makePip()}</div>
-        <div className="die-column">{right && makePip()}</div>
+      <div key={key} className={styles.dieRow}>
+        <div className={styles.dieColumn}>{left && makePip()}</div>
+        <div className={styles.dieColumn}>{center && makePip()}</div>
+        <div className={styles.dieColumn}>{right && makePip()}</div>
       </div>
     )
   }
@@ -56,16 +57,12 @@ export function Dice() {
         break; 
     }
 
-    return (
-      <>
-        {...rows}
-      </>
-    )
+    return rows;
   }
 
   function createDie(key, pips) {
     return (
-      <div key={key} className="die">
+      <div key={key} className={styles.die}>
         {createFace(pips)}
       </div>
     )
@@ -75,31 +72,36 @@ export function Dice() {
     return Math.floor(Math.random() * 6) + 1;
   }
 
-  function makeDice(e) {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
+  function rollDice(formData) {
     const formJson = Object.fromEntries(formData.entries());
     const { numDice } = formJson;
 
     const output = [];
 
     for (let i = 0; i < numDice; i++) {
-      const die = createDie(i, roll());
-      output.push(die);
+      output.push(roll());
     }
     setDice(output);
+  }
+
+  function renderDice() {
+    const output = [];
+
+    for (let i = 0; i < dice.length; i++) {
+      output.push(createDie(i, dice[i]));
+    }
+    return output;
   }
 
   return (
     <article>
       <div>Number of Dice</div>
-      <form method="post" onSubmit={makeDice}>
+      <form action={rollDice}>
         <input name="numDice" type="number" min="1" max="12" step="1"></input>
         <button type="submit">Roll</button>
       </form>
-      <div className="dice-zone">
-        {...dice}
+      <div className={styles.diceZone}>
+        {renderDice()}
       </div>
     </article>
   )

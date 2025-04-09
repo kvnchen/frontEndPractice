@@ -478,7 +478,7 @@ export function DigitalClock() {
   return (
     <div className="clock">
       <time dateTime={timeStr}>
-        {...digits}
+        {digits}
       </time>
     </div>
   )

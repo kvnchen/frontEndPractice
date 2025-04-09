@@ -51,7 +51,7 @@ export function Traffic({ red, yellow, green }) {
 
   return (
     <div className='traffic-sign'>
-      {...lights}
+      {lights}
     </div>
   )
 }

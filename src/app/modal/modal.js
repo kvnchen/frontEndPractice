@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import styles from './styles.module.css';
 
 export function Modal({ title, body }) {
   const [show, setShow] = useState(false);
@@ -13,7 +14,7 @@ export function Modal({ title, body }) {
     setShow(false);
   }
 
-  const modal = (<div className='modal'>
+  const modal = (<div className={styles.modal}>
     <h1>{title}</h1>
     <p>{body}</p>
     <div>
@@ -23,7 +24,7 @@ export function Modal({ title, body }) {
 
   return (
     <article>
-      <button type="button" onClick={showModal}>Show modal</button>
+      <button type="button" onClick={showModal} disabled={show}>Show modal</button>
       {show && modal}
     </article>
   )

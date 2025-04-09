@@ -11,8 +11,6 @@ import { useState } from 'react';
  * then tie mouseover events and click event to these setState functions
  */
 export function StarRating({ total = 5, filled = 0 }) {
-  const stars = [];
-
   function createStar(key) {
     function onMouseEnter(e) {
       setHover(e.target.id);
@@ -48,7 +46,13 @@ export function StarRating({ total = 5, filled = 0 }) {
     </svg>;
 
     return (
-      <span key={key} id={key} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} onClick={onClick}>
+      <span 
+        key={key}
+        id={key} 
+        onMouseEnter={onMouseEnter} 
+        onMouseLeave={onMouseLeave} 
+        onClick={onClick}
+      >
         {star}
       </span>
     )
@@ -57,13 +61,18 @@ export function StarRating({ total = 5, filled = 0 }) {
   const [hover, setHover] = useState(null);
   const [selected, setSelected] = useState(filled - 1);
 
-  for (let i = 0; i < total; i++) {
-    stars.push(createStar(i))
+  function render() {
+    const stars = [];
+
+    for (let i = 0; i < total; i++) {
+      stars.push(createStar(i))
+    }
+    return stars;
   }
 
   return (
     <div className='star-rating'>
-      {...stars}
+      {render()}
     </div>
   )
 }

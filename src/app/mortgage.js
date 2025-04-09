@@ -10,13 +10,15 @@ function getMonthlyPayment({loanAmount, annualInterest, loanTerm}) {
 
 export function MortgageCalculator() {
   const [monthly, setMonthly] = useState('');
-
-  function handleSubmit(e) {
-    e.preventDefault(); // prevent browser from reloading the page
+  
+  // using the action prop on form will clear input fields and give you a formData arg directly
+  function handleSubmit(formData) {
+    // e.preventDefault(); // prevent browser from reloading the page
+                           // don't need to do this with action prop
   
     // kind of cumbersome to extract form values
-    const form = e.target;
-    const formData = new FormData(form);
+    // const form = e.target;
+    // const formData = new FormData(form);
     const formJson = Object.fromEntries(formData.entries());
   
     setMonthly(`Monthly payment: \$${getMonthlyPayment(formJson)}`);
@@ -25,7 +27,7 @@ export function MortgageCalculator() {
   return (
     <article>
       <h1>Mortgage Calculator</h1>
-      <form method="post" onSubmit={handleSubmit}>
+      <form action={handleSubmit}>
         <div>
           <label>
             Loan Amount <input id="loanAmount" name="loanAmount" required type="number" min="1" />

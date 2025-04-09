@@ -9,11 +9,11 @@ import { Accordian } from './accordian/accordian.js';
 
 import { Progress } from './progress.js';
 import { PagedTable } from './dataTable/pagedTable.js';
-import { Dice } from './dice.js';
-import { FileExplorer } from './fileExplorer.js';
+import { Dice } from './dice/dice.js';
+import { FileExplorer } from './fileExplorer/fileExplorer.js';
 
 import { LikeButton } from './likeButton.js';
-import { Modal } from './modal.js';
+import { Modal } from './modal/modal.js';
 import { StarRating } from './starRating';
 import { ToDo } from './todo.js';
 
@@ -48,11 +48,12 @@ import { ProgressBar } from './progressBar/progressBar.js';
 import { ConnectFour } from './connectFour/connectFour.js';
 
 import { Tasks } from './reducerContext/reducerContext.js';
+import { Grail } from './holyGrail/grail.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('Tasks');
+  const [selection, setSelection] = useState('FileExplorer');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -100,7 +101,8 @@ export default function Home() {
     ProgressBar: <ProgressBar filled={45} />,
     ConnectFour: <ConnectFour />,
 
-    Tasks: <Tasks />
+    Tasks: <Tasks />,
+    Grail: <Grail />
   };
 
   function select() {
