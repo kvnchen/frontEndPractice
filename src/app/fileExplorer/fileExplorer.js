@@ -51,8 +51,7 @@ export function FileExplorer() {
   const rows = [];
 
   for (let j = 0; j < data.length; j++) {
-    const d = data[j]
-    rows.push(<Directory key={j} obj={d} />);
+    rows.push(<Directory key={j} obj={data[j]} offset={0} />);
   }
   
   return (
@@ -63,7 +62,10 @@ export function FileExplorer() {
 }
 
 // ok, much better after revision
-function Directory({ obj }) {
+// followup: flat rendering structure
+// instead of wrapping elements in nested divs, return a flat structure with empty tags
+// each item is a div with a level of indentation set by offset
+function Directory({ obj, offset }) {
   const { name, children } = obj;
   const [expanded, setExpanded] = useState(false);
   const hasChildren = Array.isArray(children) && children.length > 0;
@@ -73,7 +75,7 @@ function Directory({ obj }) {
 
     for (let i = 0; i < children.length; i++) {
       const child = children[i];
-      childrenComponents.push(<Directory key={i} obj={child} />);
+      childrenComponents.push(<Directory key={i} obj={child} offset={offset + 1} />);
     }
 
     return childrenComponents;
@@ -83,6 +85,11 @@ function Directory({ obj }) {
     let displayName = name;
     let titleClassName = '';
     let onClick = null;
+
+    // this syntax is a bit odd
+    const style = {
+      paddingLeft: `${offset * 10}px`
+    };
 
     if (hasChildren) {
       displayName = expanded ? `${name} [-]` : `${name} [+]`;
@@ -94,23 +101,22 @@ function Directory({ obj }) {
     console.log('rendering dir ', displayName);
 
     return (
-      <span 
+      <div 
         className={titleClassName} 
         onClick={onClick}
+        style={style}
       >
         {displayName}
-      </span>
+      </div>
     )
   }
 
   return (
-    <div>
+    <>
       {renderName()}
       {expanded && (
-        <div className={styles['directory-offset']}>
-          {hasChildren && renderChildren()}
-        </div>
+        hasChildren && renderChildren()
       )}
-    </div>
+    </>
   )
 }
