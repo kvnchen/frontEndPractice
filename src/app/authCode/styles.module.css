@@ -1,0 +1,14 @@
+.inputRow {
+  margin-bottom: 10px;
+}
+
+.inputRow > input {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.buttonRow > button {
+  margin-right: 10px;
+}
