@@ -32,6 +32,9 @@ export function AuthCode() {
    * need to use .clipboardData to grab clipboard, it wont be part of the target's value
    * 
    * maybe should handle backspace slightly differently
+   * 
+   * focus state turned out to be useless
+   * form handling somewhat redundant
    */
   const empty = [
     '',
@@ -42,7 +45,6 @@ export function AuthCode() {
     '',
   ];
   const [pins, setPins] = useState(empty);
-  // const [focus, setFocus] = useState(0);
 
   function handleSubmit(formData) {
     const formJSON = Object.fromEntries(formData.entries());
@@ -51,39 +53,74 @@ export function AuthCode() {
     submit(values.join(''));
   }
 
-  function submit(str) {
-    const req = new XMLHttpRequest();
+  async function submit(str) {
     const target = 'https://questions.greatfrontend.com/api/questions/auth-code-input';
+    
+    // const req = new XMLHttpRequest();
 
-    req.addEventListener('loadend', transferComplete);
-    req.open('POST', target);
-    req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    req.send(JSON.stringify({otp: str}));
-  }
+    // req.addEventListener('loadend', transferComplete);
+    // req.open('POST', target);
+    // req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    // req.send(JSON.stringify({otp: str}));
 
-  function transferComplete(e) {
-    const target = e.currentTarget;
+    // window.fetch() API, async style
+    try {
+      const res = await fetch(target, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({otp: str})
+      });
 
-    if (target.status === 200) {
-      alert('Success!');
-    } else if (target.status === 403) {
-      alert('Incorrect');
+      if (res.status === 200) {
+        alert('Success!');
+      } else if (res.status === 403) {
+        alert('Incorrect');
+      }
+    } catch (err) {
+      console.error(err);
     }
+
+    // fetch(target, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({otp: str})
+    // })
+    //   .then((res) => {
+    //     if (res.status === 200) {
+    //       alert('Success!');
+    //     } else if (res.status === 403) {
+    //       alert('Incorrect');
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.error(err);
+    //   });
   }
+
+  // function transferComplete(e) {
+  //   const target = e.currentTarget;
+
+  //   if (target.status === 200) {
+  //     alert('Success!');
+  //   } else if (target.status === 403) {
+  //     alert('Incorrect');
+  //   }
+  // }
 
   function reset() {
     setPins(empty);
-    // setFocus(0);
     document.getElementById(0).focus();
   }
 
   function changeFocus(id, value) {
     if (value !== '' && id < 5) {
       document.getElementById(`${id + 1}`).focus();
-      // setFocus(id + 1);
     } else if (value === '' && id !== 0) {
       document.getElementById(`${id - 1}`).focus();
-      // setFocus(id - 1);
     }
     const temp = [...pins];
     temp[id] = value;

@@ -74,8 +74,7 @@ function Directory({ obj, offset }) {
     const childrenComponents = [];
 
     for (let i = 0; i < children.length; i++) {
-      const child = children[i];
-      childrenComponents.push(<Directory key={i} obj={child} offset={offset + 1} />);
+      childrenComponents.push(<Directory key={i} obj={children[i]} offset={offset + 1} />);
     }
 
     return childrenComponents;
