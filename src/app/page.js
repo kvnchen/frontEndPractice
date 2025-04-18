@@ -52,10 +52,12 @@ import { Grail } from './holyGrail/grail.js';
 import { AuthCode } from './authCode/authCode.js';
 import { VirtualizedList } from './virtualizedList/virtualizedList.js';
 
+import { Autocomplete } from './autocomplete/autocomplete.js';
+
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('VirtualizedList');
+  const [selection, setSelection] = useState('Autocomplete');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -106,7 +108,9 @@ export default function Home() {
     Tasks: <Tasks />,
     Grail: <Grail />,
     AuthCode: <AuthCode />,
-    VirtualizedList: <VirtualizedList />
+    VirtualizedList: <VirtualizedList />,
+
+    Autocomplete: <Autocomplete />
   };
 
   function select() {

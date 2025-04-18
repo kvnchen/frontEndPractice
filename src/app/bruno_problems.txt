@@ -1,4 +1,4 @@
-Virtual Scroll List for Large Datasets:
+[x] Virtual Scroll List for Large Datasets:
 
 Task: Implement a list component that can display thousands of items efficiently without rendering all of them at once. Use the virtual scrolling technique where only the visible items (plus a small buffer) are rendered in the DOM.
 Focus: Performance optimization for large datasets, DOM manipulation, scroll event handling, state management for visible range.
