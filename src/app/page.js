@@ -50,11 +50,12 @@ import { ConnectFour } from './connectFour/connectFour.js';
 import { Tasks } from './reducerContext/reducerContext.js';
 import { Grail } from './holyGrail/grail.js';
 import { AuthCode } from './authCode/authCode.js';
+import { VirtualizedList } from './virtualizedList/virtualizedList.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('AuthCode');
+  const [selection, setSelection] = useState('VirtualizedList');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -104,7 +105,8 @@ export default function Home() {
 
     Tasks: <Tasks />,
     Grail: <Grail />,
-    AuthCode: <AuthCode />
+    AuthCode: <AuthCode />,
+    VirtualizedList: <VirtualizedList />
   };
 
   function select() {

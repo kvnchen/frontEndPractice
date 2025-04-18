@@ -1,0 +1,58 @@
+Virtual Scroll List for Large Datasets:
+
+Task: Implement a list component that can display thousands of items efficiently without rendering all of them at once. Use the virtual scrolling technique where only the visible items (plus a small buffer) are rendered in the DOM.
+Focus: Performance optimization for large datasets, DOM manipulation, scroll event handling, state management for visible range.
+
+
+Accessible & Asynchronous Combobox (Autocomplete):
+
+Task: Build a combobox input field. As the user types, it should fetch suggestions from a mock API (debounced), display them in a dropdown, be fully navigable via keyboard (up/down arrows, enter, escape), and implement ARIA attributes (aria-autocomplete, aria-expanded, aria-activedescendant, etc.) correctly for accessibility.
+Focus: Accessibility (ARIA, keyboard navigation), asynchronous operations (fetching, debouncing), state management for suggestions and selection.
+
+
+Multi-Column Draggable Kanban Board:
+
+Task: Create a simplified Kanban board interface (like Trello) with multiple columns. Users should be able to drag and drop cards within a column and between columns. The underlying data structure representing the board state should be updated accordingly.
+Focus: Complex state management, drag and drop API (HTML Drag and Drop API or a library), event handling, DOM updates.
+
+
+Themeable Component using CSS Custom Properties or Context:
+
+Task: Build a simple component (e.g., a Button or an Alert) designed for a design system. It should accept props for variants (e.g., primary, danger) and sizes. Crucially, implement a theming mechanism (using CSS Custom Properties or a framework's Context API) allowing consumers to easily override colors, fonts, and spacing globally or locally.
+Focus: CSS architecture (CSS Variables, BEM/Scoping), component API design, reusability, framework context (if applicable).
+
+
+Multi-Step Wizard Form with Validation & State Persistence:
+
+Task: Implement a multi-step form (e.g., a signup or checkout process). Each step should have its own set of fields and validation rules. Users can only proceed to the next step if the current step is valid. The form state must be maintained as the user navigates back and forth between steps.
+Focus: Complex state management, form handling, input validation logic, conditional rendering.
+
+
+Interactive SVG Map Highlighter:
+
+Task: Display an SVG map (you can find simple SVGs online for countries or regions). Implement functionality so that when a user hovers over or clicks on a specific region (path) within the SVG, that region gets highlighted (e.g., changes fill color), and some mock information about that region is displayed alongside the map.
+Focus: SVG manipulation, event handling on SVG elements, managing interactive states.
+
+
+Real-time Activity Feed Simulation:
+
+Task: Create a component that displays a list of activities or notifications. Simulate real-time updates by periodically adding new items to the top of the list using setTimeout or setInterval (mimicking data pushed from a server via WebSockets or SSE). Ensure adding new items doesn't jarringly disrupt the user if they are scrolled down the list.
+Focus: Simulating real-time updates, list management, performance considerations when updating frequently, scroll anchoring (optional challenge).
+
+
+Resizeable and Draggable Dashboard Widget:
+
+Task: Build a generic "widget" container component. When placed within a conceptual grid, this widget should be draggable to different positions and resizeable by dragging its corners or edges. You don't need a full grid implementation, just the behavior of a single widget relative to its parent.
+Focus: Advanced event handling (mouse down/move/up), calculating position and dimensions, state management for size and location.
+
+
+Offline Status Indicator & Basic Data Caching:
+
+Task: Implement a component that accurately reflects the browser's online/offline status using navigator.onLine and the online/offline window events. As a bonus: add a simple input field; if the user tries to "save" data while offline, cache it (e.g., in localStorage) and indicate that it will sync when back online.
+Focus: Browser APIs (navigator.onLine, events), simple data persistence (localStorage), handling network state changes.
+
+
+Data Processing with Web Worker:
+
+Task: Create a component with an input for a number and a button. When the button is clicked, send the number to a Web Worker to perform a computationally intensive task (e.g., calculate all primes up to that number, or compute a Fibonacci sequence). Display a loading indicator while the worker is busy, and show the result when the worker posts it back. The main UI thread should remain responsive.
+Focus: Web Workers API (creating worker, postMessage, onmessage), asynchronous communication between threads, preventing UI blocking.
