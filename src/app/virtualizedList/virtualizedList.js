@@ -18,44 +18,58 @@ import { useState, useEffect } from 'react';
  * 
  * ok, it works, but it rerenders a lot. throttle scroll event?
  */
+const windowHeight = 1312;
 const items = [];
 for (let i = 1; i <= 50; i++) {
   items.push({
     id: i,
-    isVisible: i * 110 < 1312
+    isVisible: i * 110 < (windowHeight + 110 + 36)
   });
+}
+
+function throttle(func, delay) {
+  let locked = false;
+
+  return (...args) => {
+    if (!locked) {
+      locked = true;
+
+      func.call(this, ...args);
+      setTimeout(() => {
+        locked = false;
+      }, delay);
+    }
+  };
 }
 
 export function VirtualizedList() {
   const [listItems, setItems] = useState(items);
 
-  useEffect(() => {
-    //fires a lot... and is triggering rerenders fuuuuuuu
-    window.document.addEventListener('scroll', (event) => {
-      // console.log('scrolling');
-      const scrollY = window.scrollY;
-      const temp = [...listItems];
+  function handleScroll() {
+    console.log('scrolling');
+    const scrollY = window.scrollY;
+    const temp = [...listItems];
 
-      for (let i = 0; i < temp.length; i++) {
-        const diff = (i * 110) + 110 + 36; // 110 for 0 indexing, 36 for component selector and <br>
-        temp[i].isVisible = (diff >= scrollY && diff <= (scrollY + 1312));
-      }
-      setItems(temp);
-    });
+    for (let i = 0; i < temp.length; i++) {
+      const diff = (i * 110) + 110 + 36; // 110 for 0 indexing, 36 for component selector and <br>
+      temp[i].isVisible = (diff >= scrollY && diff <= (scrollY + windowHeight + 110)); // extend window by item length to allow rendering cutoff boxes
+    }
+    setItems(temp);
+  }
+
+  useEffect(() => {
+    //fires a lot... and is triggering rerenders (but dom reconciliation should just be 2 elements at a time)
+    // throttle seems to help
+    window.document.addEventListener('scroll', throttle(handleScroll, 10));
   }, []);
 
   function renderList() {
     const output = [];
     // console.log(globalThis.innerHeight);
     // const windowHeight = globalThis.innerHeight; // some weird issue resolving this value on server
-    // const windowHeight = 1312;
-    // let heightSoFar = 110;
-
-    console.log('rendering');
+    // console.log('rendering');
 
     for (let i = 0; i < listItems.length; i++) {
-      // heightSoFar += 110;
-      // const doesExceed = heightSoFar > windowHeight;
       const doesExceed = !listItems[i].isVisible;
       const style = doesExceed ? styles.listItemHidden : styles.listItem;
 
