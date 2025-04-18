@@ -8,6 +8,8 @@ Task: Build a combobox input field. As the user types, it should fetch suggestio
 Focus: Accessibility (ARIA, keyboard navigation), asynchronous operations (fetching, debouncing), state management for suggestions and selection.
 
 already implemented autocomplete function from previous problem set
+
+need to do keyboard support for selecting suggestions and aria labelling
 */
 
 const dataset = {
@@ -55,13 +57,51 @@ export function Autocomplete() {
     asyncHandler();
   }, [input]);
 
+  function onArrow(dir, id) {
+    if (dir === 'ArrowUp') {
+      if (id === 0) {
+        document.getElementById('input').focus();
+      } else if (typeof id === 'number') {
+        document.getElementById(id - 1).focus();
+      }
+    } else if (dir === 'ArrowDown') {
+      if (id === 'input') {
+        document.getElementById(0).focus();
+      } else if (id < recommendations.length - 1) {
+        document.getElementById(id + 1).focus();
+      }
+    }
+  }
+
   function renderSuggestions() {
     const output = [];
+    
+    // don't render if there's only one suggestion that matches input
+    if (recommendations.length === 1 && recommendations[0] === input)
+      return [];
 
     for (let i = 0; i < recommendations.length; i++) {
-
       output.push(
-        <div key={i} className={styles.suggestion}>
+        <div 
+          key={i}
+          id={i}
+          className={styles.suggestion}
+          tabIndex={0}
+          onClick={() => {
+            setInput(recommendations[i])
+            setRecommendations([]); // clear recommendations on select right away
+          }}
+          onKeyDown={(e) => {
+            // console.log(e.key); 
+            // ArrowDown, ArrowUp
+            if (e.key === 'Enter') {
+              setInput(recommendations[i])
+              setRecommendations([]);
+            } else {
+              onArrow(e.key, i);
+            }
+          }}
+        >
           {recommendations[i]}
         </div>
       );
@@ -73,7 +113,18 @@ export function Autocomplete() {
   return (
     <>
       <div>
-        <input type='text' value={input} onChange={(e) => setInput(e.target.value)} />
+        <input 
+          id='input' 
+          type='text' 
+          value={input} 
+          onChange={(e) => setInput(e.target.value)} 
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+            } else {
+              onArrow(e.key, 'input');
+            }
+          }}
+        />
       </div>
       <div>
         {renderSuggestions()}
