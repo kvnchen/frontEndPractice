@@ -53,11 +53,12 @@ import { AuthCode } from './authCode/authCode.js';
 import { VirtualizedList } from './virtualizedList/virtualizedList.js';
 
 import { Autocomplete } from './autocomplete/autocomplete.js';
+import { Kanban } from './kanban/kanban.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('Autocomplete');
+  const [selection, setSelection] = useState('Kanban');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -110,7 +111,8 @@ export default function Home() {
     AuthCode: <AuthCode />,
     VirtualizedList: <VirtualizedList />,
 
-    Autocomplete: <Autocomplete />
+    Autocomplete: <Autocomplete />,
+    Kanban: <Kanban />
   };
 
   function select() {
