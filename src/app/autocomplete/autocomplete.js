@@ -9,7 +9,7 @@ Focus: Accessibility (ARIA, keyboard navigation), asynchronous operations (fetch
 
 already implemented autocomplete function from previous problem set
 
-need to do keyboard support for selecting suggestions and aria labelling
+need to do aria labelling
 */
 
 const dataset = {
@@ -51,12 +51,18 @@ export function Autocomplete() {
   useEffect(() => {
     // can't pass an async function to useEffect, have to define one inside and call it immediately
     const asyncHandler = async () => {
-      const suggest = await debouncedSuggest(input, dataset);
+      let suggest = await debouncedSuggest(input, dataset);
+
+      // don't offer if there's only one suggestion that matches input
+      if (suggest.length === 1 && suggest[0] === input)
+        suggest = [];
+
       setRecommendations(suggest);
     };
     asyncHandler();
   }, [input]);
 
+  // interesting bug: keypress events are being captured inside the dev console, which is not intended
   function onArrow(dir, id) {
     if (dir === 'ArrowUp') {
       if (id === 0) {
@@ -76,15 +82,12 @@ export function Autocomplete() {
   function renderSuggestions() {
     const output = [];
     
-    // don't render if there's only one suggestion that matches input
-    if (recommendations.length === 1 && recommendations[0] === input)
-      return [];
-
     for (let i = 0; i < recommendations.length; i++) {
       output.push(
         <div 
           key={i}
           id={i}
+          role='option' // an option within a listbox role element
           className={styles.suggestion}
           tabIndex={0}
           onClick={() => {
@@ -113,10 +116,16 @@ export function Autocomplete() {
   return (
     <>
       <div>
+        {/* inputs have to be labelled */}
+        <label id='label' htmlFor='input' className={styles.label}>Enter a word</label>
         <input 
-          id='input' 
+          id='input' // needed for the label to reference
           type='text' 
-          value={input} 
+          value={input}
+          role='combobox' // set on input that controls the popup
+          aria-controls='suggestions' // pairs with aria-expanded, value is id of controlled element
+          aria-expanded={recommendations.length !== 0} // aria-expanded is applied to the interactive control that toggles visibility of another object
+          aria-autocomplete='list' // indicates a collection of possible values in the popup
           onChange={(e) => setInput(e.target.value)} 
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
@@ -126,7 +135,11 @@ export function Autocomplete() {
           }}
         />
       </div>
-      <div>
+      <div 
+        id='suggestions' // needed for aria-controls attribute of toggle
+        role='listbox' // an element that creates a list of one or more static items
+        aria-labelledby='input' // id of toggle
+      >
         {renderSuggestions()}
       </div>
     </>
