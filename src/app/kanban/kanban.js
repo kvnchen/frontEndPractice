@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 
 /**
@@ -14,7 +14,8 @@ import styles from './styles.module.css';
  * 
  * drag and drop api huh
  * 
- * 
+ * OH YEA
+ * this is very satisfying
  */
 const data = [
   [
@@ -49,7 +50,6 @@ function Card({ id, title, body, index }) {
     ev.dataTransfer.effectAllowed = 'move';
     ev.dataTransfer.setData('application/card', id);
     ev.dataTransfer.setData('application/source', index);
-    // console.log(ev.dataTransfer.getData('application/source'));
   }
 
   return (
@@ -68,7 +68,8 @@ function Card({ id, title, body, index }) {
 export function Kanban() {
   // just store the ids in a Set to simplify column state
   // this kinda sucks for movement handling...
-  const [columns, setColumns] = useState(data.map((arr) => new Set(arr.map((item) => item.id ))));
+  const [columns, setColumns] = useState([]);
+  const [dataMap, setDataMap] = useState({});
 
   function makeMap(data) {
     const map = {};
@@ -79,7 +80,12 @@ export function Kanban() {
 
     return map;
   }
-  const [dataMap] = useState(makeMap(data));
+
+  // init on mount
+  useEffect(() => {
+    setColumns(data.map((arr) => new Set(arr.map((item) => item.id ))));
+    setDataMap(makeMap(data));
+  }, []);
 
   function moveItem(id, source, destination) {
     if (source !== destination) {
