@@ -55,6 +55,7 @@ import { VirtualizedList } from './virtualizedList/virtualizedList.js';
 import { Autocomplete } from './autocomplete/autocomplete.js';
 import { Kanban } from './kanban/kanban.js';
 import { ThemedComponent } from './themedComponent/themedComponent.js';
+import { Parent } from './themedComponent/parent.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
@@ -114,7 +115,15 @@ export default function Home() {
 
     Autocomplete: <Autocomplete />,
     Kanban: <Kanban />,
-    ThemedComponent: <ThemedComponent name='foo' value='foo' text='Press Me' width='100px' />
+    ThemedComponent: <Parent 
+      style={{
+      backgroundColor: 'white',
+      border: '1px solid black',
+      borderRadius: '5px',
+      cursor: 'pointer'}}
+      >
+        <ThemedComponent name='foo' value='foo' text='Press Me' width='100px' />
+      </Parent>
   };
 
   function select() {
