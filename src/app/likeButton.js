@@ -33,33 +33,50 @@ export function LikeButton() {
     }
   }
 
-  function transferComplete(evt) {
-    const target = evt.currentTarget;
-    setButtonText(setIcon(true));
+  // function transferComplete(evt) {
+  //   const target = evt.currentTarget;
+  //   setButtonText(setIcon(true));
 
-    if (target.status === 200) {
-      changeButtonState();
-    } else if (target.status === 500) {
-      resetButtonState();
+  //   if (target.status === 200) {
+  //     changeButtonState();
+  //   } else if (target.status === 500) {
+  //     resetButtonState();
+  //   }
+  // }
+
+  // function toggle() {
+  //   setButtonText(setIcon(false));
+
+  //   const request = new XMLHttpRequest();
+  //   const target = 'https://www.greatfrontend.com/api/questions/like-button';
+  //   const action = liked ? 'unlike' : 'like';
+
+  //   request.addEventListener('loadend', transferComplete); // seems to fire on success or error...
+  //   request.open('POST', target);
+  //   request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  //   request.send(JSON.stringify({ action: action }));
+  // }
+
+  // fetch returns a promise, so use it in an async function w/ try/catch block
+  async function toggle2() {
+    try {
+      const req = await fetch('https://questions.greatfrontend.com/api/questions/like-button', {
+        method: 'POST',
+        body: JSON.stringify({ action: liked ? 'unlike' : 'like' }),
+      });
+      console.log(req);
+      if (req.status === 200)
+        changeButtonState();
+      else
+        resetButtonState();
+    } catch(e) {
+      console.error(e);
     }
-  }
-
-  function toggle() {
-    setButtonText(setIcon(false));
-
-    const request = new XMLHttpRequest();
-    const target = 'https://www.greatfrontend.com/api/questions/like-button';
-    const action = liked ? 'unlike' : 'like';
-
-    request.addEventListener('loadend', transferComplete); // seems to fire on success or error...
-    request.open('POST', target);
-    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    request.send(JSON.stringify({ action: action }));
   }
 
   return (
     <>
-      <button className={buttonClass} onClick={toggle}>{buttonText} Like</button>
+      <button className={buttonClass} onClick={toggle2}>{buttonText} Like</button>
     </>
   )
 };

@@ -10,13 +10,13 @@ Task: Build a combobox input field. As the user types, it should fetch suggestio
 Focus: Accessibility (ARIA, keyboard navigation), asynchronous operations (fetching, debouncing), state management for suggestions and selection.
 
 
-[] Multi-Column Draggable Kanban Board:
+[x] Multi-Column Draggable Kanban Board:
 
 Task: Create a simplified Kanban board interface (like Trello) with multiple columns. Users should be able to drag and drop cards within a column and between columns. The underlying data structure representing the board state should be updated accordingly.
 Focus: Complex state management, drag and drop API (HTML Drag and Drop API or a library), event handling, DOM updates.
 
 
-Themeable Component using CSS Custom Properties or Context:
+[x] Themeable Component using CSS Custom Properties or Context:
 
 Task: Build a simple component (e.g., a Button or an Alert) designed for a design system. It should accept props for variants (e.g., primary, danger) and sizes. Crucially, implement a theming mechanism (using CSS Custom Properties or a framework's Context API) allowing consumers to easily override colors, fonts, and spacing globally or locally.
 Focus: CSS architecture (CSS Variables, BEM/Scoping), component API design, reusability, framework context (if applicable).

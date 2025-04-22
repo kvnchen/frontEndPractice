@@ -54,11 +54,12 @@ import { VirtualizedList } from './virtualizedList/virtualizedList.js';
 
 import { Autocomplete } from './autocomplete/autocomplete.js';
 import { Kanban } from './kanban/kanban.js';
+import { ThemedComponent } from './themedComponent/themedComponent.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('Kanban');
+  const [selection, setSelection] = useState('ThemedComponent');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -112,7 +113,8 @@ export default function Home() {
     VirtualizedList: <VirtualizedList />,
 
     Autocomplete: <Autocomplete />,
-    Kanban: <Kanban />
+    Kanban: <Kanban />,
+    ThemedComponent: <ThemedComponent name='foo' value='foo' text='Press Me' width='100px' />
   };
 
   function select() {

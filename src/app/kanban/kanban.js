@@ -16,6 +16,14 @@ import styles from './styles.module.css';
  * 
  * OH YEA
  * this is very satisfying
+ * 
+ * drag items:
+ *  draggable = true
+ *  onDragStart = func() // set effectAllowed and data on dataTransfer
+ * 
+ * drop zone:
+ *   onDragOver // prevent default, dropEffect
+ *   onDrop     // prevent default, get data from dataTransfer, do thing
  */
 const data = [
   [
