@@ -4,8 +4,9 @@ import styles from './styles.module.css';
 
 export function Modal({ title, body }) {
   const [show, setShow] = useState(false);
+
   function showModal() {
-    document.querySelector('body').className = 'dim';
+    document.querySelector('body').className = styles.dim;
     setShow(true);
   }
 
@@ -14,18 +15,20 @@ export function Modal({ title, body }) {
     setShow(false);
   }
 
-  const modal = (<div className={styles.modal}>
-    <h1>{title}</h1>
-    <p>{body}</p>
-    <div>
-      <button type="button" onClick={close}>Close</button>
+  const modal = (
+    <div className={styles.modal}>
+      <h1>{title}</h1>
+      <p>{body}</p>
+      <div>
+        <button type="button" onClick={close}>Close</button>
+      </div>
     </div>
-  </div>);
+  );
 
   return (
-    <article>
+    <>
       <button type="button" onClick={showModal} disabled={show}>Show modal</button>
       {show && modal}
-    </article>
+    </>
   )
 }

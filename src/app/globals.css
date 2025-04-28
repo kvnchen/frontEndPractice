@@ -49,10 +49,6 @@ div.progress {
   box-shadow: none;
 }
 
-body.dim {
-  background-color: rgba(0,0,0,0.7);
-}
-
 .star-rating > span {
   display: inline-block;
   height: 32px;

@@ -22,7 +22,7 @@ Task: Build a simple component (e.g., a Button or an Alert) designed for a desig
 Focus: CSS architecture (CSS Variables, BEM/Scoping), component API design, reusability, framework context (if applicable).
 
 
-Multi-Step Wizard Form with Validation & State Persistence:
+[] Multi-Step Wizard Form with Validation & State Persistence:
 
 Task: Implement a multi-step form (e.g., a signup or checkout process). Each step should have its own set of fields and validation rules. Users can only proceed to the next step if the current step is valid. The form state must be maintained as the user navigates back and forth between steps.
 Focus: Complex state management, form handling, input validation logic, conditional rendering.

@@ -57,10 +57,12 @@ import { Kanban } from './kanban/kanban.js';
 import { ThemedComponent } from './themedComponent/themedComponent.js';
 import { Parent } from './themedComponent/parent.js';
 
+import { Wizard } from './Wizard/wizard.js';
+
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('ThemedComponent');
+  const [selection, setSelection] = useState('Wizard');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -123,7 +125,9 @@ export default function Home() {
       cursor: 'pointer'}}
       >
         <ThemedComponent name='foo' value='foo' text='Press Me' width='100px' />
-      </Parent>
+      </Parent>,
+    Wizard: <Wizard />
+    
   };
 
   function select() {
@@ -136,14 +140,14 @@ export default function Home() {
     }
 
     return (
-      <select value={selection} onChange={e => setSelection(e.target.value)}>
+      <select id='component-select' value={selection} onChange={e => setSelection(e.target.value)}>
         {options}
       </select>
     )
   }
 
   return (
-    <div>
+    <main>
       <div>
         {select()}
       </div>
@@ -151,6 +155,6 @@ export default function Home() {
       <div>
         {components[selection]}
       </div>
-    </div>
+    </main>
   )
 }

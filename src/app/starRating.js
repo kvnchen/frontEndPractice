@@ -10,13 +10,13 @@ import { useState } from 'react';
  * 
  * then tie mouseover events and click event to these setState functions
  */
-export function StarRating({ total = 5, filled = 0 }) {
+export function StarRating({ total = 5, filled = 2 }) {
   function createStar(key) {
     function onMouseEnter(e) {
       setHover(e.target.id);
     }
 
-    function onMouseLeave(e) {
+    function onMouseLeave() {
       setHover(null);
     }
 
@@ -59,7 +59,7 @@ export function StarRating({ total = 5, filled = 0 }) {
   }
 
   const [hover, setHover] = useState(null);
-  const [selected, setSelected] = useState(filled - 1);
+  const [selected, setSelected] = useState(Math.min(filled - 1), 0); // stars are 0 indexed, filled is a count
 
   function render() {
     const stars = [];

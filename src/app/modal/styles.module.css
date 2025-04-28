@@ -12,3 +12,7 @@
 .modal > p {
   text-align: left;
 }
+
+body.dim {
+  background-color: rgba(0,0,0,0.7);
+}
