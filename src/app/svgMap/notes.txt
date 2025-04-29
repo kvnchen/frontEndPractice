@@ -1,0 +1,38 @@
+SVG
+
+An XML markup language for vector graphics.
+Similar to XML and HTML in that SVGs are documents wrapped in <svg> tags containing tags that describe how to draw an image.
+
+With rendering, later elements are generally rendered on top of previous ones.
+
+Without specifying specific units (px, cm), one user unit (represented by plain numbers without identifiers) equals one screen unit.
+
+The mapping of user units to screen units is called the user coordinate system.
+The default user coordinate system maps one user pixel to one device pixel.
+
+The coordinate system for SVGs treat the top left corner of the screen as (0,0), where positive x denotes distance to the right of the origin, and positive y denotes distance to the bottom from the origin.
+This is the same coordinate system used in HTML.
+
+x and y attributes on shape elements denote where the top left corner of the shape is from the origin.
+
+
+Paths
+
+The <path> element can be used to create lines, curves, arcs, and more. It is the most powerful element in the SVG library.
+
+The shape of a <path> element is defined by one parameter: d
+The d attribute contains a series of commands and parameters used by those commands.
+
+Commands are instantiated by a specific letter.
+The "Move to" command uses the letter M
+To move to (10,10), the command would be M 10 10
+
+All commands come in two variants. An uppercase letter specifies absolute coordinates on the page, and a lowercase letter specifies relative coordinates (e.g. move 10px up and 7px to the left from the last point).
+
+Coordinates in the d parameter are always unitless and hence in the user coordinate system.
+
+
+Simple shapes can be more easily drawn using polygon or polyline, but there's no performance penalty or bonus for using paths instead.
+
+
+

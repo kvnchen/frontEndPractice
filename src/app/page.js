@@ -57,12 +57,13 @@ import { Kanban } from './kanban/kanban.js';
 import { ThemedComponent } from './themedComponent/themedComponent.js';
 import { Parent } from './themedComponent/parent.js';
 
-import { Wizard } from './Wizard/wizard.js';
+import { Wizard } from './wizard/wizard.js';
+import { SVGMap } from './svgMap/svgMap.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('Wizard');
+  const [selection, setSelection] = useState('SVGMap');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -126,8 +127,8 @@ export default function Home() {
       >
         <ThemedComponent name='foo' value='foo' text='Press Me' width='100px' />
       </Parent>,
-    Wizard: <Wizard />
-    
+    Wizard: <Wizard />,
+    SVGMap: <SVGMap />
   };
 
   function select() {

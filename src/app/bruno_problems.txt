@@ -22,13 +22,13 @@ Task: Build a simple component (e.g., a Button or an Alert) designed for a desig
 Focus: CSS architecture (CSS Variables, BEM/Scoping), component API design, reusability, framework context (if applicable).
 
 
-[] Multi-Step Wizard Form with Validation & State Persistence:
+[x] Multi-Step Wizard Form with Validation & State Persistence:
 
 Task: Implement a multi-step form (e.g., a signup or checkout process). Each step should have its own set of fields and validation rules. Users can only proceed to the next step if the current step is valid. The form state must be maintained as the user navigates back and forth between steps.
 Focus: Complex state management, form handling, input validation logic, conditional rendering.
 
 
-Interactive SVG Map Highlighter:
+[x] Interactive SVG Map Highlighter:
 
 Task: Display an SVG map (you can find simple SVGs online for countries or regions). Implement functionality so that when a user hovers over or clicks on a specific region (path) within the SVG, that region gets highlighted (e.g., changes fill color), and some mock information about that region is displayed alongside the map.
 Focus: SVG manipulation, event handling on SVG elements, managing interactive states.
