@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import styles from './styles.module.css';
 
 export function RealTimeFeed() {
   const [feedData, setFeedData] = useState([
@@ -48,12 +49,11 @@ export function RealTimeFeed() {
   }
 
   useEffect(() => {
-    // cannot pass an async callback to useEffect, must define one inside and invoke it immediately
-    const simulate = async function() {
-      const getData = simulateData();
+    const getData = simulateData();
 
-      // recursive async function that calls itself again if the last attempt was successful
-      async function attempt() {
+    // recursive async function that calls itself again if the last attempt was successful
+    async function attempt() {
+      try {
         const data = await getData();
         if (data !== null) {
           setFeedData((prevState) => {
@@ -64,15 +64,12 @@ export function RealTimeFeed() {
           });
           attempt(); // apparently this works
         }
-      }
-      
-      try {
-        attempt();
       } catch (e) {
         console.error(e.message);
       }
-    };
-    simulate();
+    }
+    
+    attempt();
   }, []);
 
   function renderFeed() {
@@ -80,7 +77,7 @@ export function RealTimeFeed() {
 
     for (const item of feedData) {
       output.push(
-        <article key={item.id}>
+        <article key={item.id} className={styles.card}>
           <h4>{item.title}</h4>
           <p>{item.text}</p>
         </article>
