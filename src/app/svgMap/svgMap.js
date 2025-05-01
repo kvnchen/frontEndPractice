@@ -34,21 +34,15 @@ export function SVGMap() {
     )
   }
 
-  function renderInfo() {
-    if (hoverState !== null)
-      return (
-        <span>{data[hoverState]}</span>
-      )
-    else return null;
-  }
-
   return (
     <div className={styles.container}>
       <div className={styles.map}>
         {renderCountries()}
       </div>
       <p className={styles.info}>
-        {renderInfo()}
+        {hoverState !== null && (
+          <span>{data[hoverState]}</span>
+        )}
       </p>
     </div>
   )

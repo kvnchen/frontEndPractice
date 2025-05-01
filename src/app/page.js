@@ -59,11 +59,12 @@ import { Parent } from './themedComponent/parent.js';
 
 import { Wizard } from './wizard/wizard.js';
 import { SVGMap } from './svgMap/svgMap.js';
+import { RealTimeFeed } from './realTimeFeed/realTimeFeed.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('SVGMap');
+  const [selection, setSelection] = useState('RealTimeFeed');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -128,7 +129,9 @@ export default function Home() {
         <ThemedComponent name='foo' value='foo' text='Press Me' width='100px' />
       </Parent>,
     Wizard: <Wizard />,
-    SVGMap: <SVGMap />
+
+    SVGMap: <SVGMap />,
+    RealTimeFeed: <RealTimeFeed />,
   };
 
   function select() {
