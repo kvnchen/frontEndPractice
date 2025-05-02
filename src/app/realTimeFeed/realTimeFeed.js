@@ -2,6 +2,28 @@
 import { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 
+const moreData = [
+  {
+    id: 2,
+    title: 'CSS',
+    text: `
+Cascading Style Sheets is a style sheet language
+used for describing the presentation of a document
+written in a markup language such as HTML or XML.
+`
+  },
+  {
+    id: 3,
+    title: 'JavaScript',
+    text: `
+JavaScript, often abbreviated as JS, is a
+programming language that is one of the core
+technologies of the World Wide Web, alongside HTML
+and CSS.
+`
+  }
+];
+
 export function RealTimeFeed() {
   const [feedData, setFeedData] = useState([
     {
@@ -15,28 +37,6 @@ export function RealTimeFeed() {
 
   // returns a function that when called, returns last item if there are still items, otherwise null
   function simulateData() {
-    const moreData = [
-      {
-        id: 2,
-        title: 'CSS',
-        text: `
-  Cascading Style Sheets is a style sheet language
-  used for describing the presentation of a document
-  written in a markup language such as HTML or XML.
-  `
-      },
-      {
-        id: 3,
-        title: 'JavaScript',
-        text: `
-  JavaScript, often abbreviated as JS, is a
-  programming language that is one of the core
-  technologies of the World Wide Web, alongside HTML
-  and CSS.
-  `
-      }
-    ];
-
     return () => {
       if (moreData.length > 0) {
         return new Promise((resolve) => {

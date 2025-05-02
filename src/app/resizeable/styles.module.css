@@ -1,0 +1,15 @@
+div.card {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  padding: 10px;
+  resize: both;
+  border: 1px solid black;
+  overflow: scroll;
+}
+
+div.grid {
+  width: 400px;
+  height: 400px;
+  border: 1px solid black;
+}

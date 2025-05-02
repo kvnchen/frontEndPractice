@@ -40,7 +40,7 @@ Task: Create a component that displays a list of activities or notifications. Si
 Focus: Simulating real-time updates, list management, performance considerations when updating frequently, scroll anchoring (optional challenge).
 
 
-Resizeable and Draggable Dashboard Widget:
+[] Resizeable and Draggable Dashboard Widget:
 
 Task: Build a generic "widget" container component. When placed within a conceptual grid, this widget should be draggable to different positions and resizeable by dragging its corners or edges. You don't need a full grid implementation, just the behavior of a single widget relative to its parent.
 Focus: Advanced event handling (mouse down/move/up), calculating position and dimensions, state management for size and location.
