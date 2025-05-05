@@ -40,19 +40,19 @@ Task: Create a component that displays a list of activities or notifications. Si
 Focus: Simulating real-time updates, list management, performance considerations when updating frequently, scroll anchoring (optional challenge).
 
 
-[] Resizeable and Draggable Dashboard Widget:
+[x] Resizeable and Draggable Dashboard Widget:
 
 Task: Build a generic "widget" container component. When placed within a conceptual grid, this widget should be draggable to different positions and resizeable by dragging its corners or edges. You don't need a full grid implementation, just the behavior of a single widget relative to its parent.
 Focus: Advanced event handling (mouse down/move/up), calculating position and dimensions, state management for size and location.
 
 
-Offline Status Indicator & Basic Data Caching:
+[] Offline Status Indicator & Basic Data Caching:
 
 Task: Implement a component that accurately reflects the browser's online/offline status using navigator.onLine and the online/offline window events. As a bonus: add a simple input field; if the user tries to "save" data while offline, cache it (e.g., in localStorage) and indicate that it will sync when back online.
 Focus: Browser APIs (navigator.onLine, events), simple data persistence (localStorage), handling network state changes.
 
 
-Data Processing with Web Worker:
+[] Data Processing with Web Worker:
 
 Task: Create a component with an input for a number and a button. When the button is clicked, send the number to a Web Worker to perform a computationally intensive task (e.g., calculate all primes up to that number, or compute a Fibonacci sequence). Display a loading indicator while the worker is busy, and show the result when the worker posts it back. The main UI thread should remain responsive.
 Focus: Web Workers API (creating worker, postMessage, onmessage), asynchronous communication between threads, preventing UI blocking.

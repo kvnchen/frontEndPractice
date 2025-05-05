@@ -1,0 +1,19 @@
+span.indicator {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.online {
+  background-color: green;
+}
+
+.offline {
+  background-color: red;
+}
+
+span.tag {
+  font-size: 20px;
+}

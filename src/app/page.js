@@ -62,10 +62,12 @@ import { SVGMap } from './svgMap/svgMap.js';
 import { RealTimeFeed } from './realTimeFeed/realTimeFeed.js';
 import { Grid } from './resizeable/resizeable.js';
 
+import { Offline } from './offline/offline.js';
+
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('Resizeable');
+  const [selection, setSelection] = useState('Offline');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -134,6 +136,7 @@ export default function Home() {
     SVGMap: <SVGMap />,
     RealTimeFeed: <RealTimeFeed />,
     Resizeable: <Grid />,
+    Offline: <Offline />
   };
 
   function select() {

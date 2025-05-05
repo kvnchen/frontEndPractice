@@ -10,7 +10,7 @@ import styles from './styles.module.css';
  * 
  * so I think this means we need to track the top left corner position in state
  * im stupid, had axes mixed up
- * also needed absolute positioning
+ * also needed absolute positioning with pixel offset
  * 
  * current behavior of snapping the top left corner to where the mouse is isn't great
  */
