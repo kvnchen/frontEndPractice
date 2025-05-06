@@ -46,7 +46,7 @@ Task: Build a generic "widget" container component. When placed within a concept
 Focus: Advanced event handling (mouse down/move/up), calculating position and dimensions, state management for size and location.
 
 
-[] Offline Status Indicator & Basic Data Caching:
+[x] Offline Status Indicator & Basic Data Caching:
 
 Task: Implement a component that accurately reflects the browser's online/offline status using navigator.onLine and the online/offline window events. As a bonus: add a simple input field; if the user tries to "save" data while offline, cache it (e.g., in localStorage) and indicate that it will sync when back online.
 Focus: Browser APIs (navigator.onLine, events), simple data persistence (localStorage), handling network state changes.

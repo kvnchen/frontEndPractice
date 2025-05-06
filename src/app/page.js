@@ -63,11 +63,12 @@ import { RealTimeFeed } from './realTimeFeed/realTimeFeed.js';
 import { Grid } from './resizeable/resizeable.js';
 
 import { Offline } from './offline/offline.js';
+import { WebworkerComponent } from './webworker/webworker.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('Offline');
+  const [selection, setSelection] = useState('WebworkerComponent');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -136,7 +137,8 @@ export default function Home() {
     SVGMap: <SVGMap />,
     RealTimeFeed: <RealTimeFeed />,
     Resizeable: <Grid />,
-    Offline: <Offline />
+    Offline: <Offline />,
+    WebworkerComponent: <WebworkerComponent />
   };
 
   function select() {
