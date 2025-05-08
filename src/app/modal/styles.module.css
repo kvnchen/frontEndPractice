@@ -1,3 +1,7 @@
+.container {
+  height: 100vh;
+}
+
 .modal {
   position: absolute;
   top: calc(50% - 107px);

@@ -61,10 +61,10 @@ export function FileExplorer() {
   )
 }
 
-// ok, much better after revision
 // followup: flat rendering structure
 // instead of wrapping elements in nested divs, return a flat structure with empty tags
 // each item is a div with a level of indentation set by offset
+// children are rendered below it
 function Directory({ obj, offset }) {
   const { name, children } = obj;
   const [expanded, setExpanded] = useState(false);

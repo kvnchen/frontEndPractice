@@ -68,7 +68,7 @@ import { WebworkerComponent } from './webworker/webworker.js';
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('Accordian');
+  const [selection, setSelection] = useState('Modal');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
