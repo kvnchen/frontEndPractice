@@ -64,11 +64,12 @@ import { Grid } from './resizeable/resizeable.js';
 
 import { Offline } from './offline/offline.js';
 import { WebworkerComponent } from './webworker/webworker.js';
+import { Calendar } from './iCalendar/iCalendar.js';
 
 // this react project is 350 MB... gonna reuse it for react practice
 
 export default function Home() {
-  const [selection, setSelection] = useState('Modal');
+  const [selection, setSelection] = useState('iCalendar');
 
   const components = {
     MortgageCalculator: <MortgageCalculator />,
@@ -138,7 +139,8 @@ export default function Home() {
     RealTimeFeed: <RealTimeFeed />,
     Resizeable: <Grid />,
     Offline: <Offline />,
-    WebworkerComponent: <WebworkerComponent />
+    WebworkerComponent: <WebworkerComponent />,
+    iCalendar: <Calendar />
   };
 
   function select() {
