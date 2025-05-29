@@ -16,7 +16,18 @@
 }
 
 .rightPanel {
-  flex: 2;
+  flex: 1;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.buttonRow  > button {
+  height: 25px;
 }
 
 .grid {

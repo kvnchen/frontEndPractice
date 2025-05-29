@@ -106,9 +106,9 @@ export function Calendar() {
         </p>
       </div>
       <div className={styles.rightPanel}>
-        <div>
+        <div className={styles.buttonRow}>
           <button onClick={() => toggleMonth(-1)}>{'<'}</button>
-          <span>{`${getMonthName(currentYear, currentMonth)} ${currentYear}`}</span>
+          <h4>{`${getMonthName(currentYear, currentMonth)} ${currentYear}`}</h4>
           <button onClick={() => toggleMonth(1)}>{'>'}</button>
         </div>
         <div className={styles.grid}>
